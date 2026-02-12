@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_map_mapbox/features/map/presentation/screens/map_screen.dart';
+import 'package:flutter_map_mapbox/features/map/presentation/ui/screens/map_screen.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 
 void main() async {
