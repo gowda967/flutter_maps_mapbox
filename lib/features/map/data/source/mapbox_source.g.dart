@@ -20,13 +20,13 @@ class _MapboxSource implements MapboxSource {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<SuggestionResponse> suggestPlace(
+  Future<SuggestionResponse> getSuggestedPlaces(
     String query,
     int limit,
-    String proximity,
-    String sessionToken,
+    String? proximity,
+    String? sessionToken,
     String lang,
-    String country,
+    String? country,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -37,6 +37,7 @@ class _MapboxSource implements MapboxSource {
       r'language': lang,
       r'country': country,
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<SuggestionResponse>(
