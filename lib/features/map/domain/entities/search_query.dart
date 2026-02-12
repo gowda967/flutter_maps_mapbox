@@ -7,14 +7,14 @@ class SearchQuery {
   final List<PlaceType>? types;
   final String? sessionToken;
 
-  const SearchQuery(
-    this.sessionToken, {
+  const SearchQuery({
     required this.query,
     this.limit = 10,
     this.language = 'en',
     this.proximity,
     this.country,
     this.types,
+    this.sessionToken,
   });
 }
 
