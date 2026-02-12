@@ -5,8 +5,10 @@ class SearchQuery {
   final Coordinates? proximity;
   final String? country;
   final List<PlaceType>? types;
+  final String? sessionToken;
 
-  const SearchQuery({
+  const SearchQuery(
+    this.sessionToken, {
     required this.query,
     this.limit = 10,
     this.language = 'en',

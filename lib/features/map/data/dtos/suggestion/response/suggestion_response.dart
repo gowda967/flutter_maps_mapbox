@@ -6,7 +6,7 @@ part 'suggestion_response.g.dart';
 @freezed
 abstract class SuggestionResponse with _$SuggestionResponse {
   const factory SuggestionResponse({
-    @JsonKey(name: "suggestions") required List<Suggestion> suggestions,
+    @JsonKey(name: "suggestions") required List<SuggestionDto> suggestions,
     @JsonKey(name: "attribution") required String attribution,
     @JsonKey(name: "response_id") required String responseId,
   }) = _SuggestionResponse;
@@ -16,8 +16,8 @@ abstract class SuggestionResponse with _$SuggestionResponse {
 }
 
 @freezed
-abstract class Suggestion with _$Suggestion {
-  const factory Suggestion({
+abstract class SuggestionDto with _$SuggestionDto {
+  const factory SuggestionDto({
     @JsonKey(name: "name") required String name,
     @JsonKey(name: "mapbox_id") required String mapboxId,
     @JsonKey(name: "feature_type") required String featureType,
@@ -32,10 +32,10 @@ abstract class Suggestion with _$Suggestion {
     @JsonKey(name: "external_ids") required ExternalIds externalIds,
     @JsonKey(name: "metadata") required Metadata metadata,
     @JsonKey(name: "distance") required int distance,
-  }) = _Suggestion;
+  }) = _SuggestionDto;
 
-  factory Suggestion.fromJson(Map<String, dynamic> json) =>
-      _$SuggestionFromJson(json);
+  factory SuggestionDto.fromJson(Map<String, dynamic> json) =>
+      _$SuggestionDtoFromJson(json);
 }
 
 @freezed

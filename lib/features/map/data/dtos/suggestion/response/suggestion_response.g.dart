@@ -9,7 +9,7 @@ part of 'suggestion_response.dart';
 _SuggestionResponse _$SuggestionResponseFromJson(Map<String, dynamic> json) =>
     _SuggestionResponse(
       suggestions: (json['suggestions'] as List<dynamic>)
-          .map((e) => Suggestion.fromJson(e as Map<String, dynamic>))
+          .map((e) => SuggestionDto.fromJson(e as Map<String, dynamic>))
           .toList(),
       attribution: json['attribution'] as String,
       responseId: json['response_id'] as String,
@@ -22,30 +22,31 @@ Map<String, dynamic> _$SuggestionResponseToJson(_SuggestionResponse instance) =>
       'response_id': instance.responseId,
     };
 
-_Suggestion _$SuggestionFromJson(Map<String, dynamic> json) => _Suggestion(
-  name: json['name'] as String,
-  mapboxId: json['mapbox_id'] as String,
-  featureType: json['feature_type'] as String,
-  address: json['address'] as String,
-  fullAddress: json['full_address'] as String,
-  placeFormatted: json['place_formatted'] as String,
-  context: Context.fromJson(json['context'] as Map<String, dynamic>),
-  language: json['language'] as String,
-  maki: json['maki'] as String,
-  poiCategory: (json['poi_category'] as List<dynamic>)
-      .map((e) => e as String)
-      .toList(),
-  poiCategoryIds: (json['poi_category_ids'] as List<dynamic>)
-      .map((e) => e as String)
-      .toList(),
-  externalIds: ExternalIds.fromJson(
-    json['external_ids'] as Map<String, dynamic>,
-  ),
-  metadata: Metadata.fromJson(json['metadata'] as Map<String, dynamic>),
-  distance: (json['distance'] as num).toInt(),
-);
+_SuggestionDto _$SuggestionDtoFromJson(Map<String, dynamic> json) =>
+    _SuggestionDto(
+      name: json['name'] as String,
+      mapboxId: json['mapbox_id'] as String,
+      featureType: json['feature_type'] as String,
+      address: json['address'] as String,
+      fullAddress: json['full_address'] as String,
+      placeFormatted: json['place_formatted'] as String,
+      context: Context.fromJson(json['context'] as Map<String, dynamic>),
+      language: json['language'] as String,
+      maki: json['maki'] as String,
+      poiCategory: (json['poi_category'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      poiCategoryIds: (json['poi_category_ids'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+      externalIds: ExternalIds.fromJson(
+        json['external_ids'] as Map<String, dynamic>,
+      ),
+      metadata: Metadata.fromJson(json['metadata'] as Map<String, dynamic>),
+      distance: (json['distance'] as num).toInt(),
+    );
 
-Map<String, dynamic> _$SuggestionToJson(_Suggestion instance) =>
+Map<String, dynamic> _$SuggestionDtoToJson(_SuggestionDto instance) =>
     <String, dynamic>{
       'name': instance.name,
       'mapbox_id': instance.mapboxId,

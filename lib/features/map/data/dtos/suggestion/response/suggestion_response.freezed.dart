@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SuggestionResponse {
 
-@JsonKey(name: "suggestions") List<Suggestion> get suggestions;@JsonKey(name: "attribution") String get attribution;@JsonKey(name: "response_id") String get responseId;
+@JsonKey(name: "suggestions") List<SuggestionDto> get suggestions;@JsonKey(name: "attribution") String get attribution;@JsonKey(name: "response_id") String get responseId;
 /// Create a copy of SuggestionResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SuggestionResponseCopyWith<$Res>  {
   factory $SuggestionResponseCopyWith(SuggestionResponse value, $Res Function(SuggestionResponse) _then) = _$SuggestionResponseCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "suggestions") List<Suggestion> suggestions,@JsonKey(name: "attribution") String attribution,@JsonKey(name: "response_id") String responseId
+@JsonKey(name: "suggestions") List<SuggestionDto> suggestions,@JsonKey(name: "attribution") String attribution,@JsonKey(name: "response_id") String responseId
 });
 
 
@@ -68,7 +68,7 @@ class _$SuggestionResponseCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? suggestions = null,Object? attribution = null,Object? responseId = null,}) {
   return _then(_self.copyWith(
 suggestions: null == suggestions ? _self.suggestions : suggestions // ignore: cast_nullable_to_non_nullable
-as List<Suggestion>,attribution: null == attribution ? _self.attribution : attribution // ignore: cast_nullable_to_non_nullable
+as List<SuggestionDto>,attribution: null == attribution ? _self.attribution : attribution // ignore: cast_nullable_to_non_nullable
 as String,responseId: null == responseId ? _self.responseId : responseId // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -155,7 +155,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "suggestions")  List<Suggestion> suggestions, @JsonKey(name: "attribution")  String attribution, @JsonKey(name: "response_id")  String responseId)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "suggestions")  List<SuggestionDto> suggestions, @JsonKey(name: "attribution")  String attribution, @JsonKey(name: "response_id")  String responseId)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SuggestionResponse() when $default != null:
 return $default(_that.suggestions,_that.attribution,_that.responseId);case _:
@@ -176,7 +176,7 @@ return $default(_that.suggestions,_that.attribution,_that.responseId);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "suggestions")  List<Suggestion> suggestions, @JsonKey(name: "attribution")  String attribution, @JsonKey(name: "response_id")  String responseId)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "suggestions")  List<SuggestionDto> suggestions, @JsonKey(name: "attribution")  String attribution, @JsonKey(name: "response_id")  String responseId)  $default,) {final _that = this;
 switch (_that) {
 case _SuggestionResponse():
 return $default(_that.suggestions,_that.attribution,_that.responseId);case _:
@@ -196,7 +196,7 @@ return $default(_that.suggestions,_that.attribution,_that.responseId);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "suggestions")  List<Suggestion> suggestions, @JsonKey(name: "attribution")  String attribution, @JsonKey(name: "response_id")  String responseId)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "suggestions")  List<SuggestionDto> suggestions, @JsonKey(name: "attribution")  String attribution, @JsonKey(name: "response_id")  String responseId)?  $default,) {final _that = this;
 switch (_that) {
 case _SuggestionResponse() when $default != null:
 return $default(_that.suggestions,_that.attribution,_that.responseId);case _:
@@ -211,11 +211,11 @@ return $default(_that.suggestions,_that.attribution,_that.responseId);case _:
 @JsonSerializable()
 
 class _SuggestionResponse implements SuggestionResponse {
-  const _SuggestionResponse({@JsonKey(name: "suggestions") required final  List<Suggestion> suggestions, @JsonKey(name: "attribution") required this.attribution, @JsonKey(name: "response_id") required this.responseId}): _suggestions = suggestions;
+  const _SuggestionResponse({@JsonKey(name: "suggestions") required final  List<SuggestionDto> suggestions, @JsonKey(name: "attribution") required this.attribution, @JsonKey(name: "response_id") required this.responseId}): _suggestions = suggestions;
   factory _SuggestionResponse.fromJson(Map<String, dynamic> json) => _$SuggestionResponseFromJson(json);
 
- final  List<Suggestion> _suggestions;
-@override@JsonKey(name: "suggestions") List<Suggestion> get suggestions {
+ final  List<SuggestionDto> _suggestions;
+@override@JsonKey(name: "suggestions") List<SuggestionDto> get suggestions {
   if (_suggestions is EqualUnmodifiableListView) return _suggestions;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_suggestions);
@@ -257,7 +257,7 @@ abstract mixin class _$SuggestionResponseCopyWith<$Res> implements $SuggestionRe
   factory _$SuggestionResponseCopyWith(_SuggestionResponse value, $Res Function(_SuggestionResponse) _then) = __$SuggestionResponseCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "suggestions") List<Suggestion> suggestions,@JsonKey(name: "attribution") String attribution,@JsonKey(name: "response_id") String responseId
+@JsonKey(name: "suggestions") List<SuggestionDto> suggestions,@JsonKey(name: "attribution") String attribution,@JsonKey(name: "response_id") String responseId
 });
 
 
@@ -277,7 +277,7 @@ class __$SuggestionResponseCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? suggestions = null,Object? attribution = null,Object? responseId = null,}) {
   return _then(_SuggestionResponse(
 suggestions: null == suggestions ? _self._suggestions : suggestions // ignore: cast_nullable_to_non_nullable
-as List<Suggestion>,attribution: null == attribution ? _self.attribution : attribution // ignore: cast_nullable_to_non_nullable
+as List<SuggestionDto>,attribution: null == attribution ? _self.attribution : attribution // ignore: cast_nullable_to_non_nullable
 as String,responseId: null == responseId ? _self.responseId : responseId // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -288,22 +288,22 @@ as String,
 
 
 /// @nodoc
-mixin _$Suggestion {
+mixin _$SuggestionDto {
 
 @JsonKey(name: "name") String get name;@JsonKey(name: "mapbox_id") String get mapboxId;@JsonKey(name: "feature_type") String get featureType;@JsonKey(name: "address") String get address;@JsonKey(name: "full_address") String get fullAddress;@JsonKey(name: "place_formatted") String get placeFormatted;@JsonKey(name: "context") Context get context;@JsonKey(name: "language") String get language;@JsonKey(name: "maki") String get maki;@JsonKey(name: "poi_category") List<String> get poiCategory;@JsonKey(name: "poi_category_ids") List<String> get poiCategoryIds;@JsonKey(name: "external_ids") ExternalIds get externalIds;@JsonKey(name: "metadata") Metadata get metadata;@JsonKey(name: "distance") int get distance;
-/// Create a copy of Suggestion
+/// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$SuggestionCopyWith<Suggestion> get copyWith => _$SuggestionCopyWithImpl<Suggestion>(this as Suggestion, _$identity);
+$SuggestionDtoCopyWith<SuggestionDto> get copyWith => _$SuggestionDtoCopyWithImpl<SuggestionDto>(this as SuggestionDto, _$identity);
 
-  /// Serializes this Suggestion to a JSON map.
+  /// Serializes this SuggestionDto to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Suggestion&&(identical(other.name, name) || other.name == name)&&(identical(other.mapboxId, mapboxId) || other.mapboxId == mapboxId)&&(identical(other.featureType, featureType) || other.featureType == featureType)&&(identical(other.address, address) || other.address == address)&&(identical(other.fullAddress, fullAddress) || other.fullAddress == fullAddress)&&(identical(other.placeFormatted, placeFormatted) || other.placeFormatted == placeFormatted)&&(identical(other.context, context) || other.context == context)&&(identical(other.language, language) || other.language == language)&&(identical(other.maki, maki) || other.maki == maki)&&const DeepCollectionEquality().equals(other.poiCategory, poiCategory)&&const DeepCollectionEquality().equals(other.poiCategoryIds, poiCategoryIds)&&(identical(other.externalIds, externalIds) || other.externalIds == externalIds)&&(identical(other.metadata, metadata) || other.metadata == metadata)&&(identical(other.distance, distance) || other.distance == distance));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SuggestionDto&&(identical(other.name, name) || other.name == name)&&(identical(other.mapboxId, mapboxId) || other.mapboxId == mapboxId)&&(identical(other.featureType, featureType) || other.featureType == featureType)&&(identical(other.address, address) || other.address == address)&&(identical(other.fullAddress, fullAddress) || other.fullAddress == fullAddress)&&(identical(other.placeFormatted, placeFormatted) || other.placeFormatted == placeFormatted)&&(identical(other.context, context) || other.context == context)&&(identical(other.language, language) || other.language == language)&&(identical(other.maki, maki) || other.maki == maki)&&const DeepCollectionEquality().equals(other.poiCategory, poiCategory)&&const DeepCollectionEquality().equals(other.poiCategoryIds, poiCategoryIds)&&(identical(other.externalIds, externalIds) || other.externalIds == externalIds)&&(identical(other.metadata, metadata) || other.metadata == metadata)&&(identical(other.distance, distance) || other.distance == distance));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -312,15 +312,15 @@ int get hashCode => Object.hash(runtimeType,name,mapboxId,featureType,address,fu
 
 @override
 String toString() {
-  return 'Suggestion(name: $name, mapboxId: $mapboxId, featureType: $featureType, address: $address, fullAddress: $fullAddress, placeFormatted: $placeFormatted, context: $context, language: $language, maki: $maki, poiCategory: $poiCategory, poiCategoryIds: $poiCategoryIds, externalIds: $externalIds, metadata: $metadata, distance: $distance)';
+  return 'SuggestionDto(name: $name, mapboxId: $mapboxId, featureType: $featureType, address: $address, fullAddress: $fullAddress, placeFormatted: $placeFormatted, context: $context, language: $language, maki: $maki, poiCategory: $poiCategory, poiCategoryIds: $poiCategoryIds, externalIds: $externalIds, metadata: $metadata, distance: $distance)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $SuggestionCopyWith<$Res>  {
-  factory $SuggestionCopyWith(Suggestion value, $Res Function(Suggestion) _then) = _$SuggestionCopyWithImpl;
+abstract mixin class $SuggestionDtoCopyWith<$Res>  {
+  factory $SuggestionDtoCopyWith(SuggestionDto value, $Res Function(SuggestionDto) _then) = _$SuggestionDtoCopyWithImpl;
 @useResult
 $Res call({
 @JsonKey(name: "name") String name,@JsonKey(name: "mapbox_id") String mapboxId,@JsonKey(name: "feature_type") String featureType,@JsonKey(name: "address") String address,@JsonKey(name: "full_address") String fullAddress,@JsonKey(name: "place_formatted") String placeFormatted,@JsonKey(name: "context") Context context,@JsonKey(name: "language") String language,@JsonKey(name: "maki") String maki,@JsonKey(name: "poi_category") List<String> poiCategory,@JsonKey(name: "poi_category_ids") List<String> poiCategoryIds,@JsonKey(name: "external_ids") ExternalIds externalIds,@JsonKey(name: "metadata") Metadata metadata,@JsonKey(name: "distance") int distance
@@ -331,14 +331,14 @@ $ContextCopyWith<$Res> get context;$ExternalIdsCopyWith<$Res> get externalIds;$M
 
 }
 /// @nodoc
-class _$SuggestionCopyWithImpl<$Res>
-    implements $SuggestionCopyWith<$Res> {
-  _$SuggestionCopyWithImpl(this._self, this._then);
+class _$SuggestionDtoCopyWithImpl<$Res>
+    implements $SuggestionDtoCopyWith<$Res> {
+  _$SuggestionDtoCopyWithImpl(this._self, this._then);
 
-  final Suggestion _self;
-  final $Res Function(Suggestion) _then;
+  final SuggestionDto _self;
+  final $Res Function(SuggestionDto) _then;
 
-/// Create a copy of Suggestion
+/// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? mapboxId = null,Object? featureType = null,Object? address = null,Object? fullAddress = null,Object? placeFormatted = null,Object? context = null,Object? language = null,Object? maki = null,Object? poiCategory = null,Object? poiCategoryIds = null,Object? externalIds = null,Object? metadata = null,Object? distance = null,}) {
   return _then(_self.copyWith(
@@ -359,7 +359,7 @@ as Metadata,distance: null == distance ? _self.distance : distance // ignore: ca
 as int,
   ));
 }
-/// Create a copy of Suggestion
+/// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -368,7 +368,7 @@ $ContextCopyWith<$Res> get context {
   return $ContextCopyWith<$Res>(_self.context, (value) {
     return _then(_self.copyWith(context: value));
   });
-}/// Create a copy of Suggestion
+}/// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -377,7 +377,7 @@ $ExternalIdsCopyWith<$Res> get externalIds {
   return $ExternalIdsCopyWith<$Res>(_self.externalIds, (value) {
     return _then(_self.copyWith(externalIds: value));
   });
-}/// Create a copy of Suggestion
+}/// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -390,8 +390,8 @@ $MetadataCopyWith<$Res> get metadata {
 }
 
 
-/// Adds pattern-matching-related methods to [Suggestion].
-extension SuggestionPatterns on Suggestion {
+/// Adds pattern-matching-related methods to [SuggestionDto].
+extension SuggestionDtoPatterns on SuggestionDto {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -404,10 +404,10 @@ extension SuggestionPatterns on Suggestion {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Suggestion value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SuggestionDto value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _Suggestion() when $default != null:
+case _SuggestionDto() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -426,10 +426,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Suggestion value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SuggestionDto value)  $default,){
 final _that = this;
 switch (_that) {
-case _Suggestion():
+case _SuggestionDto():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -447,10 +447,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Suggestion value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SuggestionDto value)?  $default,){
 final _that = this;
 switch (_that) {
-case _Suggestion() when $default != null:
+case _SuggestionDto() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -470,7 +470,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "name")  String name, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "address")  String address, @JsonKey(name: "full_address")  String fullAddress, @JsonKey(name: "place_formatted")  String placeFormatted, @JsonKey(name: "context")  Context context, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String maki, @JsonKey(name: "poi_category")  List<String> poiCategory, @JsonKey(name: "poi_category_ids")  List<String> poiCategoryIds, @JsonKey(name: "external_ids")  ExternalIds externalIds, @JsonKey(name: "metadata")  Metadata metadata, @JsonKey(name: "distance")  int distance)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _Suggestion() when $default != null:
+case _SuggestionDto() when $default != null:
 return $default(_that.name,_that.mapboxId,_that.featureType,_that.address,_that.fullAddress,_that.placeFormatted,_that.context,_that.language,_that.maki,_that.poiCategory,_that.poiCategoryIds,_that.externalIds,_that.metadata,_that.distance);case _:
   return orElse();
 
@@ -491,7 +491,7 @@ return $default(_that.name,_that.mapboxId,_that.featureType,_that.address,_that.
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "name")  String name, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "address")  String address, @JsonKey(name: "full_address")  String fullAddress, @JsonKey(name: "place_formatted")  String placeFormatted, @JsonKey(name: "context")  Context context, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String maki, @JsonKey(name: "poi_category")  List<String> poiCategory, @JsonKey(name: "poi_category_ids")  List<String> poiCategoryIds, @JsonKey(name: "external_ids")  ExternalIds externalIds, @JsonKey(name: "metadata")  Metadata metadata, @JsonKey(name: "distance")  int distance)  $default,) {final _that = this;
 switch (_that) {
-case _Suggestion():
+case _SuggestionDto():
 return $default(_that.name,_that.mapboxId,_that.featureType,_that.address,_that.fullAddress,_that.placeFormatted,_that.context,_that.language,_that.maki,_that.poiCategory,_that.poiCategoryIds,_that.externalIds,_that.metadata,_that.distance);case _:
   throw StateError('Unexpected subclass');
 
@@ -511,7 +511,7 @@ return $default(_that.name,_that.mapboxId,_that.featureType,_that.address,_that.
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "name")  String name, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "address")  String address, @JsonKey(name: "full_address")  String fullAddress, @JsonKey(name: "place_formatted")  String placeFormatted, @JsonKey(name: "context")  Context context, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String maki, @JsonKey(name: "poi_category")  List<String> poiCategory, @JsonKey(name: "poi_category_ids")  List<String> poiCategoryIds, @JsonKey(name: "external_ids")  ExternalIds externalIds, @JsonKey(name: "metadata")  Metadata metadata, @JsonKey(name: "distance")  int distance)?  $default,) {final _that = this;
 switch (_that) {
-case _Suggestion() when $default != null:
+case _SuggestionDto() when $default != null:
 return $default(_that.name,_that.mapboxId,_that.featureType,_that.address,_that.fullAddress,_that.placeFormatted,_that.context,_that.language,_that.maki,_that.poiCategory,_that.poiCategoryIds,_that.externalIds,_that.metadata,_that.distance);case _:
   return null;
 
@@ -523,9 +523,9 @@ return $default(_that.name,_that.mapboxId,_that.featureType,_that.address,_that.
 /// @nodoc
 @JsonSerializable()
 
-class _Suggestion implements Suggestion {
-  const _Suggestion({@JsonKey(name: "name") required this.name, @JsonKey(name: "mapbox_id") required this.mapboxId, @JsonKey(name: "feature_type") required this.featureType, @JsonKey(name: "address") required this.address, @JsonKey(name: "full_address") required this.fullAddress, @JsonKey(name: "place_formatted") required this.placeFormatted, @JsonKey(name: "context") required this.context, @JsonKey(name: "language") required this.language, @JsonKey(name: "maki") required this.maki, @JsonKey(name: "poi_category") required final  List<String> poiCategory, @JsonKey(name: "poi_category_ids") required final  List<String> poiCategoryIds, @JsonKey(name: "external_ids") required this.externalIds, @JsonKey(name: "metadata") required this.metadata, @JsonKey(name: "distance") required this.distance}): _poiCategory = poiCategory,_poiCategoryIds = poiCategoryIds;
-  factory _Suggestion.fromJson(Map<String, dynamic> json) => _$SuggestionFromJson(json);
+class _SuggestionDto implements SuggestionDto {
+  const _SuggestionDto({@JsonKey(name: "name") required this.name, @JsonKey(name: "mapbox_id") required this.mapboxId, @JsonKey(name: "feature_type") required this.featureType, @JsonKey(name: "address") required this.address, @JsonKey(name: "full_address") required this.fullAddress, @JsonKey(name: "place_formatted") required this.placeFormatted, @JsonKey(name: "context") required this.context, @JsonKey(name: "language") required this.language, @JsonKey(name: "maki") required this.maki, @JsonKey(name: "poi_category") required final  List<String> poiCategory, @JsonKey(name: "poi_category_ids") required final  List<String> poiCategoryIds, @JsonKey(name: "external_ids") required this.externalIds, @JsonKey(name: "metadata") required this.metadata, @JsonKey(name: "distance") required this.distance}): _poiCategory = poiCategory,_poiCategoryIds = poiCategoryIds;
+  factory _SuggestionDto.fromJson(Map<String, dynamic> json) => _$SuggestionDtoFromJson(json);
 
 @override@JsonKey(name: "name") final  String name;
 @override@JsonKey(name: "mapbox_id") final  String mapboxId;
@@ -554,20 +554,20 @@ class _Suggestion implements Suggestion {
 @override@JsonKey(name: "metadata") final  Metadata metadata;
 @override@JsonKey(name: "distance") final  int distance;
 
-/// Create a copy of Suggestion
+/// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$SuggestionCopyWith<_Suggestion> get copyWith => __$SuggestionCopyWithImpl<_Suggestion>(this, _$identity);
+_$SuggestionDtoCopyWith<_SuggestionDto> get copyWith => __$SuggestionDtoCopyWithImpl<_SuggestionDto>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$SuggestionToJson(this, );
+  return _$SuggestionDtoToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Suggestion&&(identical(other.name, name) || other.name == name)&&(identical(other.mapboxId, mapboxId) || other.mapboxId == mapboxId)&&(identical(other.featureType, featureType) || other.featureType == featureType)&&(identical(other.address, address) || other.address == address)&&(identical(other.fullAddress, fullAddress) || other.fullAddress == fullAddress)&&(identical(other.placeFormatted, placeFormatted) || other.placeFormatted == placeFormatted)&&(identical(other.context, context) || other.context == context)&&(identical(other.language, language) || other.language == language)&&(identical(other.maki, maki) || other.maki == maki)&&const DeepCollectionEquality().equals(other._poiCategory, _poiCategory)&&const DeepCollectionEquality().equals(other._poiCategoryIds, _poiCategoryIds)&&(identical(other.externalIds, externalIds) || other.externalIds == externalIds)&&(identical(other.metadata, metadata) || other.metadata == metadata)&&(identical(other.distance, distance) || other.distance == distance));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SuggestionDto&&(identical(other.name, name) || other.name == name)&&(identical(other.mapboxId, mapboxId) || other.mapboxId == mapboxId)&&(identical(other.featureType, featureType) || other.featureType == featureType)&&(identical(other.address, address) || other.address == address)&&(identical(other.fullAddress, fullAddress) || other.fullAddress == fullAddress)&&(identical(other.placeFormatted, placeFormatted) || other.placeFormatted == placeFormatted)&&(identical(other.context, context) || other.context == context)&&(identical(other.language, language) || other.language == language)&&(identical(other.maki, maki) || other.maki == maki)&&const DeepCollectionEquality().equals(other._poiCategory, _poiCategory)&&const DeepCollectionEquality().equals(other._poiCategoryIds, _poiCategoryIds)&&(identical(other.externalIds, externalIds) || other.externalIds == externalIds)&&(identical(other.metadata, metadata) || other.metadata == metadata)&&(identical(other.distance, distance) || other.distance == distance));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -576,15 +576,15 @@ int get hashCode => Object.hash(runtimeType,name,mapboxId,featureType,address,fu
 
 @override
 String toString() {
-  return 'Suggestion(name: $name, mapboxId: $mapboxId, featureType: $featureType, address: $address, fullAddress: $fullAddress, placeFormatted: $placeFormatted, context: $context, language: $language, maki: $maki, poiCategory: $poiCategory, poiCategoryIds: $poiCategoryIds, externalIds: $externalIds, metadata: $metadata, distance: $distance)';
+  return 'SuggestionDto(name: $name, mapboxId: $mapboxId, featureType: $featureType, address: $address, fullAddress: $fullAddress, placeFormatted: $placeFormatted, context: $context, language: $language, maki: $maki, poiCategory: $poiCategory, poiCategoryIds: $poiCategoryIds, externalIds: $externalIds, metadata: $metadata, distance: $distance)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$SuggestionCopyWith<$Res> implements $SuggestionCopyWith<$Res> {
-  factory _$SuggestionCopyWith(_Suggestion value, $Res Function(_Suggestion) _then) = __$SuggestionCopyWithImpl;
+abstract mixin class _$SuggestionDtoCopyWith<$Res> implements $SuggestionDtoCopyWith<$Res> {
+  factory _$SuggestionDtoCopyWith(_SuggestionDto value, $Res Function(_SuggestionDto) _then) = __$SuggestionDtoCopyWithImpl;
 @override @useResult
 $Res call({
 @JsonKey(name: "name") String name,@JsonKey(name: "mapbox_id") String mapboxId,@JsonKey(name: "feature_type") String featureType,@JsonKey(name: "address") String address,@JsonKey(name: "full_address") String fullAddress,@JsonKey(name: "place_formatted") String placeFormatted,@JsonKey(name: "context") Context context,@JsonKey(name: "language") String language,@JsonKey(name: "maki") String maki,@JsonKey(name: "poi_category") List<String> poiCategory,@JsonKey(name: "poi_category_ids") List<String> poiCategoryIds,@JsonKey(name: "external_ids") ExternalIds externalIds,@JsonKey(name: "metadata") Metadata metadata,@JsonKey(name: "distance") int distance
@@ -595,17 +595,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$SuggestionCopyWithImpl<$Res>
-    implements _$SuggestionCopyWith<$Res> {
-  __$SuggestionCopyWithImpl(this._self, this._then);
+class __$SuggestionDtoCopyWithImpl<$Res>
+    implements _$SuggestionDtoCopyWith<$Res> {
+  __$SuggestionDtoCopyWithImpl(this._self, this._then);
 
-  final _Suggestion _self;
-  final $Res Function(_Suggestion) _then;
+  final _SuggestionDto _self;
+  final $Res Function(_SuggestionDto) _then;
 
-/// Create a copy of Suggestion
+/// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? mapboxId = null,Object? featureType = null,Object? address = null,Object? fullAddress = null,Object? placeFormatted = null,Object? context = null,Object? language = null,Object? maki = null,Object? poiCategory = null,Object? poiCategoryIds = null,Object? externalIds = null,Object? metadata = null,Object? distance = null,}) {
-  return _then(_Suggestion(
+  return _then(_SuggestionDto(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,mapboxId: null == mapboxId ? _self.mapboxId : mapboxId // ignore: cast_nullable_to_non_nullable
 as String,featureType: null == featureType ? _self.featureType : featureType // ignore: cast_nullable_to_non_nullable
@@ -624,7 +624,7 @@ as int,
   ));
 }
 
-/// Create a copy of Suggestion
+/// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -633,7 +633,7 @@ $ContextCopyWith<$Res> get context {
   return $ContextCopyWith<$Res>(_self.context, (value) {
     return _then(_self.copyWith(context: value));
   });
-}/// Create a copy of Suggestion
+}/// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -642,7 +642,7 @@ $ExternalIdsCopyWith<$Res> get externalIds {
   return $ExternalIdsCopyWith<$Res>(_self.externalIds, (value) {
     return _then(_self.copyWith(externalIds: value));
   });
-}/// Create a copy of Suggestion
+}/// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
