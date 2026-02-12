@@ -1,17 +1,20 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_map_mapbox/features/map/domain/entities/search_query.dart';
+import 'package:flutter_map_mapbox/features/map/presentation/provider/search_place_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart' as gl;
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart' as mp;
 
-class MapScreen extends StatefulWidget {
+class MapScreen extends ConsumerStatefulWidget {
   const MapScreen({super.key});
 
   @override
-  State<MapScreen> createState() => _MapScreenState();
+  ConsumerState<MapScreen> createState() => _MapScreenState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+class _MapScreenState extends ConsumerState<MapScreen> {
   mp.MapboxMap? mapboxMapController;
   StreamSubscription? userPositionStream;
 
@@ -29,6 +32,8 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
+    _listener();
+
     return Scaffold(
       body: mp.MapWidget(
         onMapCreated: _onMapCreated,
@@ -56,6 +61,7 @@ class _MapScreenState extends State<MapScreen> {
           geometry: mp.Point(coordinates: mp.Position(-122.0312186, 37.33233)),
         );
     pointAnnotationManner?.create(pointAnnotationOptions);
+    _onsearchRequest();
   }
 
   Future<void> _setupPositionTracking() async {
@@ -109,5 +115,44 @@ class _MapScreenState extends State<MapScreen> {
   Future<Uint8List> _loadHqMarkerImage() async {
     var bytData = await rootBundle.load('assets/icons/hq_marker.png');
     return bytData.buffer.asUint8List();
+  }
+
+  void _onsearchRequest() async {
+    final query = {
+      'query': "madugu",
+      'country': "IN",
+      'language': "en",
+      'limit': 10,
+      'proximity': Coordinates(-83.748708, 42.265837),
+      'sessionToken': "djudhfedb",
+    };
+    ref.read(searchPlaceProvider.notifier).setQueryData(query);
+    final suggestion = await ref
+        .read(searchPlaceProvider.notifier)
+        .searchPlaces();
+  }
+
+  void _listener() {
+    // listen for error
+    ref.listen(searchPlaceProvider.select((value) => value.error), (_, next) {
+      if (next != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            duration: const Duration(seconds: 5),
+            backgroundColor: Colors.red,
+            content: Text(next),
+          ),
+        );
+      }
+    });
+    // listen for success
+    ref.listen(searchPlaceProvider.select((value) => value.suggestion), (
+      _,
+      next,
+    ) {
+      if (next != null) {
+        print(next.suggestions.map((e) => e.name));
+      }
+    });
   }
 }

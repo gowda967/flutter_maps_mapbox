@@ -6,7 +6,7 @@ import 'package:retrofit/retrofit.dart';
 part 'mapbox_source.g.dart';
 
 final mapBoxSourceProvider = Provider<MapboxSource>((ref) {
-  final dio = ref.watch(networkServiceProvider);
+  final dio = ref.watch(mapServiceProvider);
   return MapboxSource(dio);
 });
 
@@ -14,7 +14,7 @@ final mapBoxSourceProvider = Provider<MapboxSource>((ref) {
 abstract class MapboxSource {
   factory MapboxSource(Dio dio) => _MapboxSource(dio);
 
-  @GET("/search/searchbox/v1/suggest")
+  @GET("/search/searchbox/v1/suggest?")
   Future<SuggestionResponse> getSuggestedPlaces(
     @Query('q') String query,
     @Query('limit') int limit,

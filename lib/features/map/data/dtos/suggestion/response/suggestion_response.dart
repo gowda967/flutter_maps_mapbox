@@ -21,17 +21,17 @@ abstract class SuggestionDto with _$SuggestionDto {
     @JsonKey(name: "name") required String name,
     @JsonKey(name: "mapbox_id") required String mapboxId,
     @JsonKey(name: "feature_type") required String featureType,
-    @JsonKey(name: "address") required String address,
-    @JsonKey(name: "full_address") required String fullAddress,
-    @JsonKey(name: "place_formatted") required String placeFormatted,
+    @JsonKey(name: "address") String? address,
+    @JsonKey(name: "full_address") String? fullAddress,
+    @JsonKey(name: "place_formatted") String? placeFormatted,
     @JsonKey(name: "context") required Context context,
     @JsonKey(name: "language") required String language,
-    @JsonKey(name: "maki") required String maki,
-    @JsonKey(name: "poi_category") required List<String> poiCategory,
-    @JsonKey(name: "poi_category_ids") required List<String> poiCategoryIds,
-    @JsonKey(name: "external_ids") required ExternalIds externalIds,
-    @JsonKey(name: "metadata") required Metadata metadata,
-    @JsonKey(name: "distance") required int distance,
+    @JsonKey(name: "maki") String? maki,
+    @JsonKey(name: "poi_category") @Default([]) List<String> poiCategory,
+    @JsonKey(name: "poi_category_ids") @Default([]) List<String> poiCategoryIds,
+    @JsonKey(name: "external_ids") ExternalIds? externalIds,
+    @JsonKey(name: "metadata") Metadata? metadata,
+    @JsonKey(name: "distance") @Default(0) int distance,
   }) = _SuggestionDto;
 
   factory SuggestionDto.fromJson(Map<String, dynamic> json) =>
@@ -42,8 +42,8 @@ abstract class SuggestionDto with _$SuggestionDto {
 abstract class Context with _$Context {
   const factory Context({
     @JsonKey(name: "country") required Country country,
-    @JsonKey(name: "postcode") required Place postcode,
-    @JsonKey(name: "place") required Place place,
+    @JsonKey(name: "postcode") Place? postcode,
+    @JsonKey(name: "place") Place? place,
     @JsonKey(name: "street") Street? street,
   }) = _Context;
 
@@ -66,7 +66,7 @@ abstract class Country with _$Country {
 @freezed
 abstract class Place with _$Place {
   const factory Place({
-    @JsonKey(name: "id") required String id,
+    @JsonKey(name: "id") String? id,
     @JsonKey(name: "name") required String name,
   }) = _Place;
 
@@ -82,9 +82,8 @@ abstract class Street with _$Street {
 
 @freezed
 abstract class ExternalIds with _$ExternalIds {
-  const factory ExternalIds({
-    @JsonKey(name: "dataplor") required String dataplor,
-  }) = _ExternalIds;
+  const factory ExternalIds({@JsonKey(name: "dataplor") String? dataplor}) =
+      _ExternalIds;
 
   factory ExternalIds.fromJson(Map<String, dynamic> json) =>
       _$ExternalIdsFromJson(json);
@@ -92,7 +91,10 @@ abstract class ExternalIds with _$ExternalIds {
 
 @freezed
 abstract class Metadata with _$Metadata {
-  const factory Metadata() = _Metadata;
+  const factory Metadata({
+    @JsonKey(name: "iso_3166_1") String? iso31661,
+    @JsonKey(name: "iso_3166_2") String? iso31662,
+  }) = _Metadata;
 
   factory Metadata.fromJson(Map<String, dynamic> json) =>
       _$MetadataFromJson(json);

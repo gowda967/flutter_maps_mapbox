@@ -290,7 +290,13 @@ as String,
 /// @nodoc
 mixin _$SuggestionDto {
 
-@JsonKey(name: "name") String get name;@JsonKey(name: "mapbox_id") String get mapboxId;@JsonKey(name: "feature_type") String get featureType;@JsonKey(name: "address") String get address;@JsonKey(name: "full_address") String get fullAddress;@JsonKey(name: "place_formatted") String get placeFormatted;@JsonKey(name: "context") Context get context;@JsonKey(name: "language") String get language;@JsonKey(name: "maki") String get maki;@JsonKey(name: "poi_category") List<String> get poiCategory;@JsonKey(name: "poi_category_ids") List<String> get poiCategoryIds;@JsonKey(name: "external_ids") ExternalIds get externalIds;@JsonKey(name: "metadata") Metadata get metadata;@JsonKey(name: "distance") int get distance;
+@JsonKey(name: "name") String get name;@JsonKey(name: "mapbox_id") String get mapboxId;@JsonKey(name: "feature_type") String get featureType;@JsonKey(name: "address") String? get address;// ✅ Nullable
+@JsonKey(name: "full_address") String? get fullAddress;// ✅ Nullable
+@JsonKey(name: "place_formatted") String? get placeFormatted;// ✅ Nullable
+@JsonKey(name: "context") Context get context;@JsonKey(name: "language") String get language;@JsonKey(name: "maki") String? get maki;// ✅ Nullable
+@JsonKey(name: "poi_category") List<String> get poiCategory;@JsonKey(name: "poi_category_ids") List<String> get poiCategoryIds;@JsonKey(name: "external_ids") ExternalIds? get externalIds;// ✅ Nullable
+@JsonKey(name: "metadata") Metadata? get metadata;// ✅ Nullable
+@JsonKey(name: "distance") int get distance;
 /// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -323,11 +329,11 @@ abstract mixin class $SuggestionDtoCopyWith<$Res>  {
   factory $SuggestionDtoCopyWith(SuggestionDto value, $Res Function(SuggestionDto) _then) = _$SuggestionDtoCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "name") String name,@JsonKey(name: "mapbox_id") String mapboxId,@JsonKey(name: "feature_type") String featureType,@JsonKey(name: "address") String address,@JsonKey(name: "full_address") String fullAddress,@JsonKey(name: "place_formatted") String placeFormatted,@JsonKey(name: "context") Context context,@JsonKey(name: "language") String language,@JsonKey(name: "maki") String maki,@JsonKey(name: "poi_category") List<String> poiCategory,@JsonKey(name: "poi_category_ids") List<String> poiCategoryIds,@JsonKey(name: "external_ids") ExternalIds externalIds,@JsonKey(name: "metadata") Metadata metadata,@JsonKey(name: "distance") int distance
+@JsonKey(name: "name") String name,@JsonKey(name: "mapbox_id") String mapboxId,@JsonKey(name: "feature_type") String featureType,@JsonKey(name: "address") String? address,@JsonKey(name: "full_address") String? fullAddress,@JsonKey(name: "place_formatted") String? placeFormatted,@JsonKey(name: "context") Context context,@JsonKey(name: "language") String language,@JsonKey(name: "maki") String? maki,@JsonKey(name: "poi_category") List<String> poiCategory,@JsonKey(name: "poi_category_ids") List<String> poiCategoryIds,@JsonKey(name: "external_ids") ExternalIds? externalIds,@JsonKey(name: "metadata") Metadata? metadata,@JsonKey(name: "distance") int distance
 });
 
 
-$ContextCopyWith<$Res> get context;$ExternalIdsCopyWith<$Res> get externalIds;$MetadataCopyWith<$Res> get metadata;
+$ContextCopyWith<$Res> get context;$ExternalIdsCopyWith<$Res>? get externalIds;$MetadataCopyWith<$Res>? get metadata;
 
 }
 /// @nodoc
@@ -340,22 +346,22 @@ class _$SuggestionDtoCopyWithImpl<$Res>
 
 /// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? mapboxId = null,Object? featureType = null,Object? address = null,Object? fullAddress = null,Object? placeFormatted = null,Object? context = null,Object? language = null,Object? maki = null,Object? poiCategory = null,Object? poiCategoryIds = null,Object? externalIds = null,Object? metadata = null,Object? distance = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? mapboxId = null,Object? featureType = null,Object? address = freezed,Object? fullAddress = freezed,Object? placeFormatted = freezed,Object? context = null,Object? language = null,Object? maki = freezed,Object? poiCategory = null,Object? poiCategoryIds = null,Object? externalIds = freezed,Object? metadata = freezed,Object? distance = null,}) {
   return _then(_self.copyWith(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,mapboxId: null == mapboxId ? _self.mapboxId : mapboxId // ignore: cast_nullable_to_non_nullable
 as String,featureType: null == featureType ? _self.featureType : featureType // ignore: cast_nullable_to_non_nullable
-as String,address: null == address ? _self.address : address // ignore: cast_nullable_to_non_nullable
-as String,fullAddress: null == fullAddress ? _self.fullAddress : fullAddress // ignore: cast_nullable_to_non_nullable
-as String,placeFormatted: null == placeFormatted ? _self.placeFormatted : placeFormatted // ignore: cast_nullable_to_non_nullable
-as String,context: null == context ? _self.context : context // ignore: cast_nullable_to_non_nullable
+as String,address: freezed == address ? _self.address : address // ignore: cast_nullable_to_non_nullable
+as String?,fullAddress: freezed == fullAddress ? _self.fullAddress : fullAddress // ignore: cast_nullable_to_non_nullable
+as String?,placeFormatted: freezed == placeFormatted ? _self.placeFormatted : placeFormatted // ignore: cast_nullable_to_non_nullable
+as String?,context: null == context ? _self.context : context // ignore: cast_nullable_to_non_nullable
 as Context,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
-as String,maki: null == maki ? _self.maki : maki // ignore: cast_nullable_to_non_nullable
-as String,poiCategory: null == poiCategory ? _self.poiCategory : poiCategory // ignore: cast_nullable_to_non_nullable
+as String,maki: freezed == maki ? _self.maki : maki // ignore: cast_nullable_to_non_nullable
+as String?,poiCategory: null == poiCategory ? _self.poiCategory : poiCategory // ignore: cast_nullable_to_non_nullable
 as List<String>,poiCategoryIds: null == poiCategoryIds ? _self.poiCategoryIds : poiCategoryIds // ignore: cast_nullable_to_non_nullable
-as List<String>,externalIds: null == externalIds ? _self.externalIds : externalIds // ignore: cast_nullable_to_non_nullable
-as ExternalIds,metadata: null == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
-as Metadata,distance: null == distance ? _self.distance : distance // ignore: cast_nullable_to_non_nullable
+as List<String>,externalIds: freezed == externalIds ? _self.externalIds : externalIds // ignore: cast_nullable_to_non_nullable
+as ExternalIds?,metadata: freezed == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
+as Metadata?,distance: null == distance ? _self.distance : distance // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }
@@ -372,18 +378,24 @@ $ContextCopyWith<$Res> get context {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ExternalIdsCopyWith<$Res> get externalIds {
-  
-  return $ExternalIdsCopyWith<$Res>(_self.externalIds, (value) {
+$ExternalIdsCopyWith<$Res>? get externalIds {
+    if (_self.externalIds == null) {
+    return null;
+  }
+
+  return $ExternalIdsCopyWith<$Res>(_self.externalIds!, (value) {
     return _then(_self.copyWith(externalIds: value));
   });
 }/// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$MetadataCopyWith<$Res> get metadata {
-  
-  return $MetadataCopyWith<$Res>(_self.metadata, (value) {
+$MetadataCopyWith<$Res>? get metadata {
+    if (_self.metadata == null) {
+    return null;
+  }
+
+  return $MetadataCopyWith<$Res>(_self.metadata!, (value) {
     return _then(_self.copyWith(metadata: value));
   });
 }
@@ -468,7 +480,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "name")  String name, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "address")  String address, @JsonKey(name: "full_address")  String fullAddress, @JsonKey(name: "place_formatted")  String placeFormatted, @JsonKey(name: "context")  Context context, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String maki, @JsonKey(name: "poi_category")  List<String> poiCategory, @JsonKey(name: "poi_category_ids")  List<String> poiCategoryIds, @JsonKey(name: "external_ids")  ExternalIds externalIds, @JsonKey(name: "metadata")  Metadata metadata, @JsonKey(name: "distance")  int distance)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "name")  String name, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "address")  String? address, @JsonKey(name: "full_address")  String? fullAddress, @JsonKey(name: "place_formatted")  String? placeFormatted, @JsonKey(name: "context")  Context context, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String? maki, @JsonKey(name: "poi_category")  List<String> poiCategory, @JsonKey(name: "poi_category_ids")  List<String> poiCategoryIds, @JsonKey(name: "external_ids")  ExternalIds? externalIds, @JsonKey(name: "metadata")  Metadata? metadata, @JsonKey(name: "distance")  int distance)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SuggestionDto() when $default != null:
 return $default(_that.name,_that.mapboxId,_that.featureType,_that.address,_that.fullAddress,_that.placeFormatted,_that.context,_that.language,_that.maki,_that.poiCategory,_that.poiCategoryIds,_that.externalIds,_that.metadata,_that.distance);case _:
@@ -489,7 +501,7 @@ return $default(_that.name,_that.mapboxId,_that.featureType,_that.address,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "name")  String name, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "address")  String address, @JsonKey(name: "full_address")  String fullAddress, @JsonKey(name: "place_formatted")  String placeFormatted, @JsonKey(name: "context")  Context context, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String maki, @JsonKey(name: "poi_category")  List<String> poiCategory, @JsonKey(name: "poi_category_ids")  List<String> poiCategoryIds, @JsonKey(name: "external_ids")  ExternalIds externalIds, @JsonKey(name: "metadata")  Metadata metadata, @JsonKey(name: "distance")  int distance)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "name")  String name, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "address")  String? address, @JsonKey(name: "full_address")  String? fullAddress, @JsonKey(name: "place_formatted")  String? placeFormatted, @JsonKey(name: "context")  Context context, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String? maki, @JsonKey(name: "poi_category")  List<String> poiCategory, @JsonKey(name: "poi_category_ids")  List<String> poiCategoryIds, @JsonKey(name: "external_ids")  ExternalIds? externalIds, @JsonKey(name: "metadata")  Metadata? metadata, @JsonKey(name: "distance")  int distance)  $default,) {final _that = this;
 switch (_that) {
 case _SuggestionDto():
 return $default(_that.name,_that.mapboxId,_that.featureType,_that.address,_that.fullAddress,_that.placeFormatted,_that.context,_that.language,_that.maki,_that.poiCategory,_that.poiCategoryIds,_that.externalIds,_that.metadata,_that.distance);case _:
@@ -509,7 +521,7 @@ return $default(_that.name,_that.mapboxId,_that.featureType,_that.address,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "name")  String name, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "address")  String address, @JsonKey(name: "full_address")  String fullAddress, @JsonKey(name: "place_formatted")  String placeFormatted, @JsonKey(name: "context")  Context context, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String maki, @JsonKey(name: "poi_category")  List<String> poiCategory, @JsonKey(name: "poi_category_ids")  List<String> poiCategoryIds, @JsonKey(name: "external_ids")  ExternalIds externalIds, @JsonKey(name: "metadata")  Metadata metadata, @JsonKey(name: "distance")  int distance)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "name")  String name, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "address")  String? address, @JsonKey(name: "full_address")  String? fullAddress, @JsonKey(name: "place_formatted")  String? placeFormatted, @JsonKey(name: "context")  Context context, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String? maki, @JsonKey(name: "poi_category")  List<String> poiCategory, @JsonKey(name: "poi_category_ids")  List<String> poiCategoryIds, @JsonKey(name: "external_ids")  ExternalIds? externalIds, @JsonKey(name: "metadata")  Metadata? metadata, @JsonKey(name: "distance")  int distance)?  $default,) {final _that = this;
 switch (_that) {
 case _SuggestionDto() when $default != null:
 return $default(_that.name,_that.mapboxId,_that.featureType,_that.address,_that.fullAddress,_that.placeFormatted,_that.context,_that.language,_that.maki,_that.poiCategory,_that.poiCategoryIds,_that.externalIds,_that.metadata,_that.distance);case _:
@@ -524,19 +536,24 @@ return $default(_that.name,_that.mapboxId,_that.featureType,_that.address,_that.
 @JsonSerializable()
 
 class _SuggestionDto implements SuggestionDto {
-  const _SuggestionDto({@JsonKey(name: "name") required this.name, @JsonKey(name: "mapbox_id") required this.mapboxId, @JsonKey(name: "feature_type") required this.featureType, @JsonKey(name: "address") required this.address, @JsonKey(name: "full_address") required this.fullAddress, @JsonKey(name: "place_formatted") required this.placeFormatted, @JsonKey(name: "context") required this.context, @JsonKey(name: "language") required this.language, @JsonKey(name: "maki") required this.maki, @JsonKey(name: "poi_category") required final  List<String> poiCategory, @JsonKey(name: "poi_category_ids") required final  List<String> poiCategoryIds, @JsonKey(name: "external_ids") required this.externalIds, @JsonKey(name: "metadata") required this.metadata, @JsonKey(name: "distance") required this.distance}): _poiCategory = poiCategory,_poiCategoryIds = poiCategoryIds;
+  const _SuggestionDto({@JsonKey(name: "name") required this.name, @JsonKey(name: "mapbox_id") required this.mapboxId, @JsonKey(name: "feature_type") required this.featureType, @JsonKey(name: "address") this.address, @JsonKey(name: "full_address") this.fullAddress, @JsonKey(name: "place_formatted") this.placeFormatted, @JsonKey(name: "context") required this.context, @JsonKey(name: "language") required this.language, @JsonKey(name: "maki") this.maki, @JsonKey(name: "poi_category") final  List<String> poiCategory = const [], @JsonKey(name: "poi_category_ids") final  List<String> poiCategoryIds = const [], @JsonKey(name: "external_ids") this.externalIds, @JsonKey(name: "metadata") this.metadata, @JsonKey(name: "distance") this.distance = 0}): _poiCategory = poiCategory,_poiCategoryIds = poiCategoryIds;
   factory _SuggestionDto.fromJson(Map<String, dynamic> json) => _$SuggestionDtoFromJson(json);
 
 @override@JsonKey(name: "name") final  String name;
 @override@JsonKey(name: "mapbox_id") final  String mapboxId;
 @override@JsonKey(name: "feature_type") final  String featureType;
-@override@JsonKey(name: "address") final  String address;
-@override@JsonKey(name: "full_address") final  String fullAddress;
-@override@JsonKey(name: "place_formatted") final  String placeFormatted;
+@override@JsonKey(name: "address") final  String? address;
+// ✅ Nullable
+@override@JsonKey(name: "full_address") final  String? fullAddress;
+// ✅ Nullable
+@override@JsonKey(name: "place_formatted") final  String? placeFormatted;
+// ✅ Nullable
 @override@JsonKey(name: "context") final  Context context;
 @override@JsonKey(name: "language") final  String language;
-@override@JsonKey(name: "maki") final  String maki;
+@override@JsonKey(name: "maki") final  String? maki;
+// ✅ Nullable
  final  List<String> _poiCategory;
+// ✅ Nullable
 @override@JsonKey(name: "poi_category") List<String> get poiCategory {
   if (_poiCategory is EqualUnmodifiableListView) return _poiCategory;
   // ignore: implicit_dynamic_type
@@ -550,8 +567,10 @@ class _SuggestionDto implements SuggestionDto {
   return EqualUnmodifiableListView(_poiCategoryIds);
 }
 
-@override@JsonKey(name: "external_ids") final  ExternalIds externalIds;
-@override@JsonKey(name: "metadata") final  Metadata metadata;
+@override@JsonKey(name: "external_ids") final  ExternalIds? externalIds;
+// ✅ Nullable
+@override@JsonKey(name: "metadata") final  Metadata? metadata;
+// ✅ Nullable
 @override@JsonKey(name: "distance") final  int distance;
 
 /// Create a copy of SuggestionDto
@@ -587,11 +606,11 @@ abstract mixin class _$SuggestionDtoCopyWith<$Res> implements $SuggestionDtoCopy
   factory _$SuggestionDtoCopyWith(_SuggestionDto value, $Res Function(_SuggestionDto) _then) = __$SuggestionDtoCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "name") String name,@JsonKey(name: "mapbox_id") String mapboxId,@JsonKey(name: "feature_type") String featureType,@JsonKey(name: "address") String address,@JsonKey(name: "full_address") String fullAddress,@JsonKey(name: "place_formatted") String placeFormatted,@JsonKey(name: "context") Context context,@JsonKey(name: "language") String language,@JsonKey(name: "maki") String maki,@JsonKey(name: "poi_category") List<String> poiCategory,@JsonKey(name: "poi_category_ids") List<String> poiCategoryIds,@JsonKey(name: "external_ids") ExternalIds externalIds,@JsonKey(name: "metadata") Metadata metadata,@JsonKey(name: "distance") int distance
+@JsonKey(name: "name") String name,@JsonKey(name: "mapbox_id") String mapboxId,@JsonKey(name: "feature_type") String featureType,@JsonKey(name: "address") String? address,@JsonKey(name: "full_address") String? fullAddress,@JsonKey(name: "place_formatted") String? placeFormatted,@JsonKey(name: "context") Context context,@JsonKey(name: "language") String language,@JsonKey(name: "maki") String? maki,@JsonKey(name: "poi_category") List<String> poiCategory,@JsonKey(name: "poi_category_ids") List<String> poiCategoryIds,@JsonKey(name: "external_ids") ExternalIds? externalIds,@JsonKey(name: "metadata") Metadata? metadata,@JsonKey(name: "distance") int distance
 });
 
 
-@override $ContextCopyWith<$Res> get context;@override $ExternalIdsCopyWith<$Res> get externalIds;@override $MetadataCopyWith<$Res> get metadata;
+@override $ContextCopyWith<$Res> get context;@override $ExternalIdsCopyWith<$Res>? get externalIds;@override $MetadataCopyWith<$Res>? get metadata;
 
 }
 /// @nodoc
@@ -604,22 +623,22 @@ class __$SuggestionDtoCopyWithImpl<$Res>
 
 /// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? mapboxId = null,Object? featureType = null,Object? address = null,Object? fullAddress = null,Object? placeFormatted = null,Object? context = null,Object? language = null,Object? maki = null,Object? poiCategory = null,Object? poiCategoryIds = null,Object? externalIds = null,Object? metadata = null,Object? distance = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? mapboxId = null,Object? featureType = null,Object? address = freezed,Object? fullAddress = freezed,Object? placeFormatted = freezed,Object? context = null,Object? language = null,Object? maki = freezed,Object? poiCategory = null,Object? poiCategoryIds = null,Object? externalIds = freezed,Object? metadata = freezed,Object? distance = null,}) {
   return _then(_SuggestionDto(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,mapboxId: null == mapboxId ? _self.mapboxId : mapboxId // ignore: cast_nullable_to_non_nullable
 as String,featureType: null == featureType ? _self.featureType : featureType // ignore: cast_nullable_to_non_nullable
-as String,address: null == address ? _self.address : address // ignore: cast_nullable_to_non_nullable
-as String,fullAddress: null == fullAddress ? _self.fullAddress : fullAddress // ignore: cast_nullable_to_non_nullable
-as String,placeFormatted: null == placeFormatted ? _self.placeFormatted : placeFormatted // ignore: cast_nullable_to_non_nullable
-as String,context: null == context ? _self.context : context // ignore: cast_nullable_to_non_nullable
+as String,address: freezed == address ? _self.address : address // ignore: cast_nullable_to_non_nullable
+as String?,fullAddress: freezed == fullAddress ? _self.fullAddress : fullAddress // ignore: cast_nullable_to_non_nullable
+as String?,placeFormatted: freezed == placeFormatted ? _self.placeFormatted : placeFormatted // ignore: cast_nullable_to_non_nullable
+as String?,context: null == context ? _self.context : context // ignore: cast_nullable_to_non_nullable
 as Context,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
-as String,maki: null == maki ? _self.maki : maki // ignore: cast_nullable_to_non_nullable
-as String,poiCategory: null == poiCategory ? _self._poiCategory : poiCategory // ignore: cast_nullable_to_non_nullable
+as String,maki: freezed == maki ? _self.maki : maki // ignore: cast_nullable_to_non_nullable
+as String?,poiCategory: null == poiCategory ? _self._poiCategory : poiCategory // ignore: cast_nullable_to_non_nullable
 as List<String>,poiCategoryIds: null == poiCategoryIds ? _self._poiCategoryIds : poiCategoryIds // ignore: cast_nullable_to_non_nullable
-as List<String>,externalIds: null == externalIds ? _self.externalIds : externalIds // ignore: cast_nullable_to_non_nullable
-as ExternalIds,metadata: null == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
-as Metadata,distance: null == distance ? _self.distance : distance // ignore: cast_nullable_to_non_nullable
+as List<String>,externalIds: freezed == externalIds ? _self.externalIds : externalIds // ignore: cast_nullable_to_non_nullable
+as ExternalIds?,metadata: freezed == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
+as Metadata?,distance: null == distance ? _self.distance : distance // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }
@@ -637,18 +656,24 @@ $ContextCopyWith<$Res> get context {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ExternalIdsCopyWith<$Res> get externalIds {
-  
-  return $ExternalIdsCopyWith<$Res>(_self.externalIds, (value) {
+$ExternalIdsCopyWith<$Res>? get externalIds {
+    if (_self.externalIds == null) {
+    return null;
+  }
+
+  return $ExternalIdsCopyWith<$Res>(_self.externalIds!, (value) {
     return _then(_self.copyWith(externalIds: value));
   });
 }/// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$MetadataCopyWith<$Res> get metadata {
-  
-  return $MetadataCopyWith<$Res>(_self.metadata, (value) {
+$MetadataCopyWith<$Res>? get metadata {
+    if (_self.metadata == null) {
+    return null;
+  }
+
+  return $MetadataCopyWith<$Res>(_self.metadata!, (value) {
     return _then(_self.copyWith(metadata: value));
   });
 }
@@ -658,7 +683,9 @@ $MetadataCopyWith<$Res> get metadata {
 /// @nodoc
 mixin _$Context {
 
-@JsonKey(name: "country") Country get country;@JsonKey(name: "postcode") Place get postcode;@JsonKey(name: "place") Place get place;@JsonKey(name: "street") Street? get street;
+@JsonKey(name: "country") Country get country;@JsonKey(name: "postcode") Place? get postcode;// ✅ Nullable
+@JsonKey(name: "place") Place? get place;// ✅ Nullable
+@JsonKey(name: "street") Street? get street;
 /// Create a copy of Context
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -691,11 +718,11 @@ abstract mixin class $ContextCopyWith<$Res>  {
   factory $ContextCopyWith(Context value, $Res Function(Context) _then) = _$ContextCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "country") Country country,@JsonKey(name: "postcode") Place postcode,@JsonKey(name: "place") Place place,@JsonKey(name: "street") Street? street
+@JsonKey(name: "country") Country country,@JsonKey(name: "postcode") Place? postcode,@JsonKey(name: "place") Place? place,@JsonKey(name: "street") Street? street
 });
 
 
-$CountryCopyWith<$Res> get country;$PlaceCopyWith<$Res> get postcode;$PlaceCopyWith<$Res> get place;$StreetCopyWith<$Res>? get street;
+$CountryCopyWith<$Res> get country;$PlaceCopyWith<$Res>? get postcode;$PlaceCopyWith<$Res>? get place;$StreetCopyWith<$Res>? get street;
 
 }
 /// @nodoc
@@ -708,12 +735,12 @@ class _$ContextCopyWithImpl<$Res>
 
 /// Create a copy of Context
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? country = null,Object? postcode = null,Object? place = null,Object? street = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? country = null,Object? postcode = freezed,Object? place = freezed,Object? street = freezed,}) {
   return _then(_self.copyWith(
 country: null == country ? _self.country : country // ignore: cast_nullable_to_non_nullable
-as Country,postcode: null == postcode ? _self.postcode : postcode // ignore: cast_nullable_to_non_nullable
-as Place,place: null == place ? _self.place : place // ignore: cast_nullable_to_non_nullable
-as Place,street: freezed == street ? _self.street : street // ignore: cast_nullable_to_non_nullable
+as Country,postcode: freezed == postcode ? _self.postcode : postcode // ignore: cast_nullable_to_non_nullable
+as Place?,place: freezed == place ? _self.place : place // ignore: cast_nullable_to_non_nullable
+as Place?,street: freezed == street ? _self.street : street // ignore: cast_nullable_to_non_nullable
 as Street?,
   ));
 }
@@ -730,18 +757,24 @@ $CountryCopyWith<$Res> get country {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$PlaceCopyWith<$Res> get postcode {
-  
-  return $PlaceCopyWith<$Res>(_self.postcode, (value) {
+$PlaceCopyWith<$Res>? get postcode {
+    if (_self.postcode == null) {
+    return null;
+  }
+
+  return $PlaceCopyWith<$Res>(_self.postcode!, (value) {
     return _then(_self.copyWith(postcode: value));
   });
 }/// Create a copy of Context
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$PlaceCopyWith<$Res> get place {
-  
-  return $PlaceCopyWith<$Res>(_self.place, (value) {
+$PlaceCopyWith<$Res>? get place {
+    if (_self.place == null) {
+    return null;
+  }
+
+  return $PlaceCopyWith<$Res>(_self.place!, (value) {
     return _then(_self.copyWith(place: value));
   });
 }/// Create a copy of Context
@@ -838,7 +871,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "country")  Country country, @JsonKey(name: "postcode")  Place postcode, @JsonKey(name: "place")  Place place, @JsonKey(name: "street")  Street? street)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "country")  Country country, @JsonKey(name: "postcode")  Place? postcode, @JsonKey(name: "place")  Place? place, @JsonKey(name: "street")  Street? street)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Context() when $default != null:
 return $default(_that.country,_that.postcode,_that.place,_that.street);case _:
@@ -859,7 +892,7 @@ return $default(_that.country,_that.postcode,_that.place,_that.street);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "country")  Country country, @JsonKey(name: "postcode")  Place postcode, @JsonKey(name: "place")  Place place, @JsonKey(name: "street")  Street? street)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "country")  Country country, @JsonKey(name: "postcode")  Place? postcode, @JsonKey(name: "place")  Place? place, @JsonKey(name: "street")  Street? street)  $default,) {final _that = this;
 switch (_that) {
 case _Context():
 return $default(_that.country,_that.postcode,_that.place,_that.street);case _:
@@ -879,7 +912,7 @@ return $default(_that.country,_that.postcode,_that.place,_that.street);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "country")  Country country, @JsonKey(name: "postcode")  Place postcode, @JsonKey(name: "place")  Place place, @JsonKey(name: "street")  Street? street)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "country")  Country country, @JsonKey(name: "postcode")  Place? postcode, @JsonKey(name: "place")  Place? place, @JsonKey(name: "street")  Street? street)?  $default,) {final _that = this;
 switch (_that) {
 case _Context() when $default != null:
 return $default(_that.country,_that.postcode,_that.place,_that.street);case _:
@@ -894,12 +927,14 @@ return $default(_that.country,_that.postcode,_that.place,_that.street);case _:
 @JsonSerializable()
 
 class _Context implements Context {
-  const _Context({@JsonKey(name: "country") required this.country, @JsonKey(name: "postcode") required this.postcode, @JsonKey(name: "place") required this.place, @JsonKey(name: "street") this.street});
+  const _Context({@JsonKey(name: "country") required this.country, @JsonKey(name: "postcode") this.postcode, @JsonKey(name: "place") this.place, @JsonKey(name: "street") this.street});
   factory _Context.fromJson(Map<String, dynamic> json) => _$ContextFromJson(json);
 
 @override@JsonKey(name: "country") final  Country country;
-@override@JsonKey(name: "postcode") final  Place postcode;
-@override@JsonKey(name: "place") final  Place place;
+@override@JsonKey(name: "postcode") final  Place? postcode;
+// ✅ Nullable
+@override@JsonKey(name: "place") final  Place? place;
+// ✅ Nullable
 @override@JsonKey(name: "street") final  Street? street;
 
 /// Create a copy of Context
@@ -935,11 +970,11 @@ abstract mixin class _$ContextCopyWith<$Res> implements $ContextCopyWith<$Res> {
   factory _$ContextCopyWith(_Context value, $Res Function(_Context) _then) = __$ContextCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "country") Country country,@JsonKey(name: "postcode") Place postcode,@JsonKey(name: "place") Place place,@JsonKey(name: "street") Street? street
+@JsonKey(name: "country") Country country,@JsonKey(name: "postcode") Place? postcode,@JsonKey(name: "place") Place? place,@JsonKey(name: "street") Street? street
 });
 
 
-@override $CountryCopyWith<$Res> get country;@override $PlaceCopyWith<$Res> get postcode;@override $PlaceCopyWith<$Res> get place;@override $StreetCopyWith<$Res>? get street;
+@override $CountryCopyWith<$Res> get country;@override $PlaceCopyWith<$Res>? get postcode;@override $PlaceCopyWith<$Res>? get place;@override $StreetCopyWith<$Res>? get street;
 
 }
 /// @nodoc
@@ -952,12 +987,12 @@ class __$ContextCopyWithImpl<$Res>
 
 /// Create a copy of Context
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? country = null,Object? postcode = null,Object? place = null,Object? street = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? country = null,Object? postcode = freezed,Object? place = freezed,Object? street = freezed,}) {
   return _then(_Context(
 country: null == country ? _self.country : country // ignore: cast_nullable_to_non_nullable
-as Country,postcode: null == postcode ? _self.postcode : postcode // ignore: cast_nullable_to_non_nullable
-as Place,place: null == place ? _self.place : place // ignore: cast_nullable_to_non_nullable
-as Place,street: freezed == street ? _self.street : street // ignore: cast_nullable_to_non_nullable
+as Country,postcode: freezed == postcode ? _self.postcode : postcode // ignore: cast_nullable_to_non_nullable
+as Place?,place: freezed == place ? _self.place : place // ignore: cast_nullable_to_non_nullable
+as Place?,street: freezed == street ? _self.street : street // ignore: cast_nullable_to_non_nullable
 as Street?,
   ));
 }
@@ -975,18 +1010,24 @@ $CountryCopyWith<$Res> get country {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$PlaceCopyWith<$Res> get postcode {
-  
-  return $PlaceCopyWith<$Res>(_self.postcode, (value) {
+$PlaceCopyWith<$Res>? get postcode {
+    if (_self.postcode == null) {
+    return null;
+  }
+
+  return $PlaceCopyWith<$Res>(_self.postcode!, (value) {
     return _then(_self.copyWith(postcode: value));
   });
 }/// Create a copy of Context
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$PlaceCopyWith<$Res> get place {
-  
-  return $PlaceCopyWith<$Res>(_self.place, (value) {
+$PlaceCopyWith<$Res>? get place {
+    if (_self.place == null) {
+    return null;
+  }
+
+  return $PlaceCopyWith<$Res>(_self.place!, (value) {
     return _then(_self.copyWith(place: value));
   });
 }/// Create a copy of Context
@@ -1277,7 +1318,8 @@ as String,
 /// @nodoc
 mixin _$Place {
 
-@JsonKey(name: "id") String get id;@JsonKey(name: "name") String get name;
+@JsonKey(name: "id") String? get id;// ✅ Nullable
+@JsonKey(name: "name") String get name;
 /// Create a copy of Place
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1310,7 +1352,7 @@ abstract mixin class $PlaceCopyWith<$Res>  {
   factory $PlaceCopyWith(Place value, $Res Function(Place) _then) = _$PlaceCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "id") String id,@JsonKey(name: "name") String name
+@JsonKey(name: "id") String? id,@JsonKey(name: "name") String name
 });
 
 
@@ -1327,10 +1369,10 @@ class _$PlaceCopyWithImpl<$Res>
 
 /// Create a copy of Place
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? name = null,}) {
   return _then(_self.copyWith(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -1416,7 +1458,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  String id, @JsonKey(name: "name")  String name)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  String? id, @JsonKey(name: "name")  String name)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Place() when $default != null:
 return $default(_that.id,_that.name);case _:
@@ -1437,7 +1479,7 @@ return $default(_that.id,_that.name);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  String id, @JsonKey(name: "name")  String name)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "id")  String? id, @JsonKey(name: "name")  String name)  $default,) {final _that = this;
 switch (_that) {
 case _Place():
 return $default(_that.id,_that.name);case _:
@@ -1457,7 +1499,7 @@ return $default(_that.id,_that.name);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "id")  String id, @JsonKey(name: "name")  String name)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "id")  String? id, @JsonKey(name: "name")  String name)?  $default,) {final _that = this;
 switch (_that) {
 case _Place() when $default != null:
 return $default(_that.id,_that.name);case _:
@@ -1472,10 +1514,11 @@ return $default(_that.id,_that.name);case _:
 @JsonSerializable()
 
 class _Place implements Place {
-  const _Place({@JsonKey(name: "id") required this.id, @JsonKey(name: "name") required this.name});
+  const _Place({@JsonKey(name: "id") this.id, @JsonKey(name: "name") required this.name});
   factory _Place.fromJson(Map<String, dynamic> json) => _$PlaceFromJson(json);
 
-@override@JsonKey(name: "id") final  String id;
+@override@JsonKey(name: "id") final  String? id;
+// ✅ Nullable
 @override@JsonKey(name: "name") final  String name;
 
 /// Create a copy of Place
@@ -1511,7 +1554,7 @@ abstract mixin class _$PlaceCopyWith<$Res> implements $PlaceCopyWith<$Res> {
   factory _$PlaceCopyWith(_Place value, $Res Function(_Place) _then) = __$PlaceCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "id") String id,@JsonKey(name: "name") String name
+@JsonKey(name: "id") String? id,@JsonKey(name: "name") String name
 });
 
 
@@ -1528,10 +1571,10 @@ class __$PlaceCopyWithImpl<$Res>
 
 /// Create a copy of Place
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? name = null,}) {
   return _then(_Place(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String?,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -1806,7 +1849,7 @@ as String,
 /// @nodoc
 mixin _$ExternalIds {
 
-@JsonKey(name: "dataplor") String get dataplor;
+@JsonKey(name: "dataplor") String? get dataplor;
 /// Create a copy of ExternalIds
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1839,7 +1882,7 @@ abstract mixin class $ExternalIdsCopyWith<$Res>  {
   factory $ExternalIdsCopyWith(ExternalIds value, $Res Function(ExternalIds) _then) = _$ExternalIdsCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "dataplor") String dataplor
+@JsonKey(name: "dataplor") String? dataplor
 });
 
 
@@ -1856,10 +1899,10 @@ class _$ExternalIdsCopyWithImpl<$Res>
 
 /// Create a copy of ExternalIds
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? dataplor = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? dataplor = freezed,}) {
   return _then(_self.copyWith(
-dataplor: null == dataplor ? _self.dataplor : dataplor // ignore: cast_nullable_to_non_nullable
-as String,
+dataplor: freezed == dataplor ? _self.dataplor : dataplor // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -1944,7 +1987,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "dataplor")  String dataplor)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "dataplor")  String? dataplor)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ExternalIds() when $default != null:
 return $default(_that.dataplor);case _:
@@ -1965,7 +2008,7 @@ return $default(_that.dataplor);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "dataplor")  String dataplor)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "dataplor")  String? dataplor)  $default,) {final _that = this;
 switch (_that) {
 case _ExternalIds():
 return $default(_that.dataplor);case _:
@@ -1985,7 +2028,7 @@ return $default(_that.dataplor);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "dataplor")  String dataplor)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "dataplor")  String? dataplor)?  $default,) {final _that = this;
 switch (_that) {
 case _ExternalIds() when $default != null:
 return $default(_that.dataplor);case _:
@@ -2000,10 +2043,10 @@ return $default(_that.dataplor);case _:
 @JsonSerializable()
 
 class _ExternalIds implements ExternalIds {
-  const _ExternalIds({@JsonKey(name: "dataplor") required this.dataplor});
+  const _ExternalIds({@JsonKey(name: "dataplor") this.dataplor});
   factory _ExternalIds.fromJson(Map<String, dynamic> json) => _$ExternalIdsFromJson(json);
 
-@override@JsonKey(name: "dataplor") final  String dataplor;
+@override@JsonKey(name: "dataplor") final  String? dataplor;
 
 /// Create a copy of ExternalIds
 /// with the given fields replaced by the non-null parameter values.
@@ -2038,7 +2081,7 @@ abstract mixin class _$ExternalIdsCopyWith<$Res> implements $ExternalIdsCopyWith
   factory _$ExternalIdsCopyWith(_ExternalIds value, $Res Function(_ExternalIds) _then) = __$ExternalIdsCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "dataplor") String dataplor
+@JsonKey(name: "dataplor") String? dataplor
 });
 
 
@@ -2055,10 +2098,10 @@ class __$ExternalIdsCopyWithImpl<$Res>
 
 /// Create a copy of ExternalIds
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? dataplor = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? dataplor = freezed,}) {
   return _then(_ExternalIds(
-dataplor: null == dataplor ? _self.dataplor : dataplor // ignore: cast_nullable_to_non_nullable
-as String,
+dataplor: freezed == dataplor ? _self.dataplor : dataplor // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -2069,7 +2112,12 @@ as String,
 /// @nodoc
 mixin _$Metadata {
 
-
+@JsonKey(name: "iso_3166_1") String? get iso31661;@JsonKey(name: "iso_3166_2") String? get iso31662;
+/// Create a copy of Metadata
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$MetadataCopyWith<Metadata> get copyWith => _$MetadataCopyWithImpl<Metadata>(this as Metadata, _$identity);
 
   /// Serializes this Metadata to a JSON map.
   Map<String, dynamic> toJson();
@@ -2077,24 +2125,51 @@ mixin _$Metadata {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Metadata);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Metadata&&(identical(other.iso31661, iso31661) || other.iso31661 == iso31661)&&(identical(other.iso31662, iso31662) || other.iso31662 == iso31662));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,iso31661,iso31662);
 
 @override
 String toString() {
-  return 'Metadata()';
+  return 'Metadata(iso31661: $iso31661, iso31662: $iso31662)';
 }
 
 
 }
 
 /// @nodoc
-class $MetadataCopyWith<$Res>  {
-$MetadataCopyWith(Metadata _, $Res Function(Metadata) __);
+abstract mixin class $MetadataCopyWith<$Res>  {
+  factory $MetadataCopyWith(Metadata value, $Res Function(Metadata) _then) = _$MetadataCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(name: "iso_3166_1") String? iso31661,@JsonKey(name: "iso_3166_2") String? iso31662
+});
+
+
+
+
+}
+/// @nodoc
+class _$MetadataCopyWithImpl<$Res>
+    implements $MetadataCopyWith<$Res> {
+  _$MetadataCopyWithImpl(this._self, this._then);
+
+  final Metadata _self;
+  final $Res Function(Metadata) _then;
+
+/// Create a copy of Metadata
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? iso31661 = freezed,Object? iso31662 = freezed,}) {
+  return _then(_self.copyWith(
+iso31661: freezed == iso31661 ? _self.iso31661 : iso31661 // ignore: cast_nullable_to_non_nullable
+as String?,iso31662: freezed == iso31662 ? _self.iso31662 : iso31662 // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
 }
 
 
@@ -2176,10 +2251,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function()?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "iso_3166_1")  String? iso31661, @JsonKey(name: "iso_3166_2")  String? iso31662)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Metadata() when $default != null:
-return $default();case _:
+return $default(_that.iso31661,_that.iso31662);case _:
   return orElse();
 
 }
@@ -2197,10 +2272,10 @@ return $default();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function()  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "iso_3166_1")  String? iso31661, @JsonKey(name: "iso_3166_2")  String? iso31662)  $default,) {final _that = this;
 switch (_that) {
 case _Metadata():
-return $default();case _:
+return $default(_that.iso31661,_that.iso31662);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -2217,10 +2292,10 @@ return $default();case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function()?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "iso_3166_1")  String? iso31661, @JsonKey(name: "iso_3166_2")  String? iso31662)?  $default,) {final _that = this;
 switch (_that) {
 case _Metadata() when $default != null:
-return $default();case _:
+return $default(_that.iso31661,_that.iso31662);case _:
   return null;
 
 }
@@ -2232,11 +2307,17 @@ return $default();case _:
 @JsonSerializable()
 
 class _Metadata implements Metadata {
-  const _Metadata();
+  const _Metadata({@JsonKey(name: "iso_3166_1") this.iso31661, @JsonKey(name: "iso_3166_2") this.iso31662});
   factory _Metadata.fromJson(Map<String, dynamic> json) => _$MetadataFromJson(json);
 
+@override@JsonKey(name: "iso_3166_1") final  String? iso31661;
+@override@JsonKey(name: "iso_3166_2") final  String? iso31662;
 
-
+/// Create a copy of Metadata
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$MetadataCopyWith<_Metadata> get copyWith => __$MetadataCopyWithImpl<_Metadata>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
@@ -2245,22 +2326,52 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Metadata);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Metadata&&(identical(other.iso31661, iso31661) || other.iso31661 == iso31661)&&(identical(other.iso31662, iso31662) || other.iso31662 == iso31662));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,iso31661,iso31662);
 
 @override
 String toString() {
-  return 'Metadata()';
+  return 'Metadata(iso31661: $iso31661, iso31662: $iso31662)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class _$MetadataCopyWith<$Res> implements $MetadataCopyWith<$Res> {
+  factory _$MetadataCopyWith(_Metadata value, $Res Function(_Metadata) _then) = __$MetadataCopyWithImpl;
+@override @useResult
+$Res call({
+@JsonKey(name: "iso_3166_1") String? iso31661,@JsonKey(name: "iso_3166_2") String? iso31662
+});
 
 
+
+
+}
+/// @nodoc
+class __$MetadataCopyWithImpl<$Res>
+    implements _$MetadataCopyWith<$Res> {
+  __$MetadataCopyWithImpl(this._self, this._then);
+
+  final _Metadata _self;
+  final $Res Function(_Metadata) _then;
+
+/// Create a copy of Metadata
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? iso31661 = freezed,Object? iso31662 = freezed,}) {
+  return _then(_Metadata(
+iso31661: freezed == iso31661 ? _self.iso31661 : iso31661 // ignore: cast_nullable_to_non_nullable
+as String?,iso31662: freezed == iso31662 ? _self.iso31662 : iso31662 // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
 
 // dart format on

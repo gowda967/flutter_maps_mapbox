@@ -1,3 +1,4 @@
+import 'package:flutter_map_mapbox/features/map/domain/entities/place_suggestion.dart';
 import 'package:flutter_map_mapbox/features/map/domain/entities/search_query.dart';
 import 'package:flutter_map_mapbox/features/map/domain/usecases/search_places_usecase.dart';
 import 'package:flutter_map_mapbox/features/map/presentation/state/search_place_state.dart';

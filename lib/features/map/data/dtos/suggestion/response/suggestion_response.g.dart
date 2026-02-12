@@ -27,23 +27,29 @@ _SuggestionDto _$SuggestionDtoFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       mapboxId: json['mapbox_id'] as String,
       featureType: json['feature_type'] as String,
-      address: json['address'] as String,
-      fullAddress: json['full_address'] as String,
-      placeFormatted: json['place_formatted'] as String,
+      address: json['address'] as String?,
+      fullAddress: json['full_address'] as String?,
+      placeFormatted: json['place_formatted'] as String?,
       context: Context.fromJson(json['context'] as Map<String, dynamic>),
       language: json['language'] as String,
-      maki: json['maki'] as String,
-      poiCategory: (json['poi_category'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-      poiCategoryIds: (json['poi_category_ids'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-      externalIds: ExternalIds.fromJson(
-        json['external_ids'] as Map<String, dynamic>,
-      ),
-      metadata: Metadata.fromJson(json['metadata'] as Map<String, dynamic>),
-      distance: (json['distance'] as num).toInt(),
+      maki: json['maki'] as String?,
+      poiCategory:
+          (json['poi_category'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
+      poiCategoryIds:
+          (json['poi_category_ids'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
+      externalIds: json['external_ids'] == null
+          ? null
+          : ExternalIds.fromJson(json['external_ids'] as Map<String, dynamic>),
+      metadata: json['metadata'] == null
+          ? null
+          : Metadata.fromJson(json['metadata'] as Map<String, dynamic>),
+      distance: (json['distance'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$SuggestionDtoToJson(_SuggestionDto instance) =>
@@ -66,8 +72,12 @@ Map<String, dynamic> _$SuggestionDtoToJson(_SuggestionDto instance) =>
 
 _Context _$ContextFromJson(Map<String, dynamic> json) => _Context(
   country: Country.fromJson(json['country'] as Map<String, dynamic>),
-  postcode: Place.fromJson(json['postcode'] as Map<String, dynamic>),
-  place: Place.fromJson(json['place'] as Map<String, dynamic>),
+  postcode: json['postcode'] == null
+      ? null
+      : Place.fromJson(json['postcode'] as Map<String, dynamic>),
+  place: json['place'] == null
+      ? null
+      : Place.fromJson(json['place'] as Map<String, dynamic>),
   street: json['street'] == null
       ? null
       : Street.fromJson(json['street'] as Map<String, dynamic>),
@@ -93,7 +103,7 @@ Map<String, dynamic> _$CountryToJson(_Country instance) => <String, dynamic>{
 };
 
 _Place _$PlaceFromJson(Map<String, dynamic> json) =>
-    _Place(id: json['id'] as String, name: json['name'] as String);
+    _Place(id: json['id'] as String?, name: json['name'] as String);
 
 Map<String, dynamic> _$PlaceToJson(_Place instance) => <String, dynamic>{
   'id': instance.id,
@@ -108,12 +118,17 @@ Map<String, dynamic> _$StreetToJson(_Street instance) => <String, dynamic>{
 };
 
 _ExternalIds _$ExternalIdsFromJson(Map<String, dynamic> json) =>
-    _ExternalIds(dataplor: json['dataplor'] as String);
+    _ExternalIds(dataplor: json['dataplor'] as String?);
 
 Map<String, dynamic> _$ExternalIdsToJson(_ExternalIds instance) =>
     <String, dynamic>{'dataplor': instance.dataplor};
 
-_Metadata _$MetadataFromJson(Map<String, dynamic> json) => _Metadata();
+_Metadata _$MetadataFromJson(Map<String, dynamic> json) => _Metadata(
+  iso31661: json['iso_3166_1'] as String?,
+  iso31662: json['iso_3166_2'] as String?,
+);
 
-Map<String, dynamic> _$MetadataToJson(_Metadata instance) =>
-    <String, dynamic>{};
+Map<String, dynamic> _$MetadataToJson(_Metadata instance) => <String, dynamic>{
+  'iso_3166_1': instance.iso31661,
+  'iso_3166_2': instance.iso31662,
+};

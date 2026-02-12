@@ -9,8 +9,8 @@ class PlaceSuggestion {
 class Suggestion {
   final String id;
   final String name;
-  final String address;
-  final String fullAddress;
+  final String? address;
+  final String? fullAddress;
   final PlaceContext context;
   final int distance;
 
@@ -26,7 +26,7 @@ class Suggestion {
 
 class PlaceContext {
   final String country;
-  final String city;
+  final String? city;
   final String? street;
 
   const PlaceContext({required this.country, required this.city, this.street});

@@ -44,7 +44,7 @@ class _MapboxSource implements MapboxSource {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/search/searchbox/v1/suggest',
+            '/search/searchbox/v1/suggest?',
             queryParameters: queryParameters,
             data: _data,
           )

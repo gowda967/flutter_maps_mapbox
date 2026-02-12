@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_map_mapbox/features/map/presentation/ui/screens/map_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setup();
   // MapboxOptions.setAccessToken(Env.accessToken);
-  runApp(const MyApp());
+  runApp(ProviderScope(child: const MyApp()));
 }
 
 Future<void> setup() async {
