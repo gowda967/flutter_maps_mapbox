@@ -20,8 +20,6 @@ class MapServiceInterceptor extends Interceptor {
   ) async {
     final token = await tokenService.getMapBoxAccessToken();
     options.queryParameters['access_token'] = token;
-    options.queryParameters['language'] = 'en';
-    options.queryParameters['country'] = 'IN';
     super.onRequest(options, handler);
   }
 
