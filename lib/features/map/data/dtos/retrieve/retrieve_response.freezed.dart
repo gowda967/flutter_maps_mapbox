@@ -13,22 +13,22 @@ part of 'retrieve_response.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$RetrieveResponse {
+mixin _$RetrieveResponseDto {
 
-@JsonKey(name: "type") String get type;@JsonKey(name: "features") List<Feature> get features;@JsonKey(name: "attribution") String get attribution;
-/// Create a copy of RetrieveResponse
+@JsonKey(name: "type") String get type;@JsonKey(name: "features") List<FeatureDto> get features;@JsonKey(name: "attribution") String get attribution;
+/// Create a copy of RetrieveResponseDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$RetrieveResponseCopyWith<RetrieveResponse> get copyWith => _$RetrieveResponseCopyWithImpl<RetrieveResponse>(this as RetrieveResponse, _$identity);
+$RetrieveResponseDtoCopyWith<RetrieveResponseDto> get copyWith => _$RetrieveResponseDtoCopyWithImpl<RetrieveResponseDto>(this as RetrieveResponseDto, _$identity);
 
-  /// Serializes this RetrieveResponse to a JSON map.
+  /// Serializes this RetrieveResponseDto to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RetrieveResponse&&(identical(other.type, type) || other.type == type)&&const DeepCollectionEquality().equals(other.features, features)&&(identical(other.attribution, attribution) || other.attribution == attribution));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RetrieveResponseDto&&(identical(other.type, type) || other.type == type)&&const DeepCollectionEquality().equals(other.features, features)&&(identical(other.attribution, attribution) || other.attribution == attribution));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,18 +37,18 @@ int get hashCode => Object.hash(runtimeType,type,const DeepCollectionEquality().
 
 @override
 String toString() {
-  return 'RetrieveResponse(type: $type, features: $features, attribution: $attribution)';
+  return 'RetrieveResponseDto(type: $type, features: $features, attribution: $attribution)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $RetrieveResponseCopyWith<$Res>  {
-  factory $RetrieveResponseCopyWith(RetrieveResponse value, $Res Function(RetrieveResponse) _then) = _$RetrieveResponseCopyWithImpl;
+abstract mixin class $RetrieveResponseDtoCopyWith<$Res>  {
+  factory $RetrieveResponseDtoCopyWith(RetrieveResponseDto value, $Res Function(RetrieveResponseDto) _then) = _$RetrieveResponseDtoCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "type") String type,@JsonKey(name: "features") List<Feature> features,@JsonKey(name: "attribution") String attribution
+@JsonKey(name: "type") String type,@JsonKey(name: "features") List<FeatureDto> features,@JsonKey(name: "attribution") String attribution
 });
 
 
@@ -56,20 +56,20 @@ $Res call({
 
 }
 /// @nodoc
-class _$RetrieveResponseCopyWithImpl<$Res>
-    implements $RetrieveResponseCopyWith<$Res> {
-  _$RetrieveResponseCopyWithImpl(this._self, this._then);
+class _$RetrieveResponseDtoCopyWithImpl<$Res>
+    implements $RetrieveResponseDtoCopyWith<$Res> {
+  _$RetrieveResponseDtoCopyWithImpl(this._self, this._then);
 
-  final RetrieveResponse _self;
-  final $Res Function(RetrieveResponse) _then;
+  final RetrieveResponseDto _self;
+  final $Res Function(RetrieveResponseDto) _then;
 
-/// Create a copy of RetrieveResponse
+/// Create a copy of RetrieveResponseDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? features = null,Object? attribution = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,features: null == features ? _self.features : features // ignore: cast_nullable_to_non_nullable
-as List<Feature>,attribution: null == attribution ? _self.attribution : attribution // ignore: cast_nullable_to_non_nullable
+as List<FeatureDto>,attribution: null == attribution ? _self.attribution : attribution // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -77,8 +77,8 @@ as String,
 }
 
 
-/// Adds pattern-matching-related methods to [RetrieveResponse].
-extension RetrieveResponsePatterns on RetrieveResponse {
+/// Adds pattern-matching-related methods to [RetrieveResponseDto].
+extension RetrieveResponseDtoPatterns on RetrieveResponseDto {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -91,10 +91,10 @@ extension RetrieveResponsePatterns on RetrieveResponse {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _RetrieveResponse value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _RetrieveResponseDto value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _RetrieveResponse() when $default != null:
+case _RetrieveResponseDto() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -113,10 +113,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _RetrieveResponse value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _RetrieveResponseDto value)  $default,){
 final _that = this;
 switch (_that) {
-case _RetrieveResponse():
+case _RetrieveResponseDto():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -134,10 +134,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _RetrieveResponse value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _RetrieveResponseDto value)?  $default,){
 final _that = this;
 switch (_that) {
-case _RetrieveResponse() when $default != null:
+case _RetrieveResponseDto() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -155,9 +155,9 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "type")  String type, @JsonKey(name: "features")  List<Feature> features, @JsonKey(name: "attribution")  String attribution)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "type")  String type, @JsonKey(name: "features")  List<FeatureDto> features, @JsonKey(name: "attribution")  String attribution)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _RetrieveResponse() when $default != null:
+case _RetrieveResponseDto() when $default != null:
 return $default(_that.type,_that.features,_that.attribution);case _:
   return orElse();
 
@@ -176,9 +176,9 @@ return $default(_that.type,_that.features,_that.attribution);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "type")  String type, @JsonKey(name: "features")  List<Feature> features, @JsonKey(name: "attribution")  String attribution)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "type")  String type, @JsonKey(name: "features")  List<FeatureDto> features, @JsonKey(name: "attribution")  String attribution)  $default,) {final _that = this;
 switch (_that) {
-case _RetrieveResponse():
+case _RetrieveResponseDto():
 return $default(_that.type,_that.features,_that.attribution);case _:
   throw StateError('Unexpected subclass');
 
@@ -196,9 +196,9 @@ return $default(_that.type,_that.features,_that.attribution);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "type")  String type, @JsonKey(name: "features")  List<Feature> features, @JsonKey(name: "attribution")  String attribution)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "type")  String type, @JsonKey(name: "features")  List<FeatureDto> features, @JsonKey(name: "attribution")  String attribution)?  $default,) {final _that = this;
 switch (_that) {
-case _RetrieveResponse() when $default != null:
+case _RetrieveResponseDto() when $default != null:
 return $default(_that.type,_that.features,_that.attribution);case _:
   return null;
 
@@ -210,13 +210,13 @@ return $default(_that.type,_that.features,_that.attribution);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _RetrieveResponse implements RetrieveResponse {
-  const _RetrieveResponse({@JsonKey(name: "type") required this.type, @JsonKey(name: "features") required final  List<Feature> features, @JsonKey(name: "attribution") required this.attribution}): _features = features;
-  factory _RetrieveResponse.fromJson(Map<String, dynamic> json) => _$RetrieveResponseFromJson(json);
+class _RetrieveResponseDto implements RetrieveResponseDto {
+  const _RetrieveResponseDto({@JsonKey(name: "type") required this.type, @JsonKey(name: "features") required final  List<FeatureDto> features, @JsonKey(name: "attribution") required this.attribution}): _features = features;
+  factory _RetrieveResponseDto.fromJson(Map<String, dynamic> json) => _$RetrieveResponseDtoFromJson(json);
 
 @override@JsonKey(name: "type") final  String type;
- final  List<Feature> _features;
-@override@JsonKey(name: "features") List<Feature> get features {
+ final  List<FeatureDto> _features;
+@override@JsonKey(name: "features") List<FeatureDto> get features {
   if (_features is EqualUnmodifiableListView) return _features;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_features);
@@ -224,20 +224,20 @@ class _RetrieveResponse implements RetrieveResponse {
 
 @override@JsonKey(name: "attribution") final  String attribution;
 
-/// Create a copy of RetrieveResponse
+/// Create a copy of RetrieveResponseDto
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$RetrieveResponseCopyWith<_RetrieveResponse> get copyWith => __$RetrieveResponseCopyWithImpl<_RetrieveResponse>(this, _$identity);
+_$RetrieveResponseDtoCopyWith<_RetrieveResponseDto> get copyWith => __$RetrieveResponseDtoCopyWithImpl<_RetrieveResponseDto>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$RetrieveResponseToJson(this, );
+  return _$RetrieveResponseDtoToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RetrieveResponse&&(identical(other.type, type) || other.type == type)&&const DeepCollectionEquality().equals(other._features, _features)&&(identical(other.attribution, attribution) || other.attribution == attribution));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RetrieveResponseDto&&(identical(other.type, type) || other.type == type)&&const DeepCollectionEquality().equals(other._features, _features)&&(identical(other.attribution, attribution) || other.attribution == attribution));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -246,18 +246,18 @@ int get hashCode => Object.hash(runtimeType,type,const DeepCollectionEquality().
 
 @override
 String toString() {
-  return 'RetrieveResponse(type: $type, features: $features, attribution: $attribution)';
+  return 'RetrieveResponseDto(type: $type, features: $features, attribution: $attribution)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$RetrieveResponseCopyWith<$Res> implements $RetrieveResponseCopyWith<$Res> {
-  factory _$RetrieveResponseCopyWith(_RetrieveResponse value, $Res Function(_RetrieveResponse) _then) = __$RetrieveResponseCopyWithImpl;
+abstract mixin class _$RetrieveResponseDtoCopyWith<$Res> implements $RetrieveResponseDtoCopyWith<$Res> {
+  factory _$RetrieveResponseDtoCopyWith(_RetrieveResponseDto value, $Res Function(_RetrieveResponseDto) _then) = __$RetrieveResponseDtoCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "type") String type,@JsonKey(name: "features") List<Feature> features,@JsonKey(name: "attribution") String attribution
+@JsonKey(name: "type") String type,@JsonKey(name: "features") List<FeatureDto> features,@JsonKey(name: "attribution") String attribution
 });
 
 
@@ -265,20 +265,20 @@ $Res call({
 
 }
 /// @nodoc
-class __$RetrieveResponseCopyWithImpl<$Res>
-    implements _$RetrieveResponseCopyWith<$Res> {
-  __$RetrieveResponseCopyWithImpl(this._self, this._then);
+class __$RetrieveResponseDtoCopyWithImpl<$Res>
+    implements _$RetrieveResponseDtoCopyWith<$Res> {
+  __$RetrieveResponseDtoCopyWithImpl(this._self, this._then);
 
-  final _RetrieveResponse _self;
-  final $Res Function(_RetrieveResponse) _then;
+  final _RetrieveResponseDto _self;
+  final $Res Function(_RetrieveResponseDto) _then;
 
-/// Create a copy of RetrieveResponse
+/// Create a copy of RetrieveResponseDto
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? features = null,Object? attribution = null,}) {
-  return _then(_RetrieveResponse(
+  return _then(_RetrieveResponseDto(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,features: null == features ? _self._features : features // ignore: cast_nullable_to_non_nullable
-as List<Feature>,attribution: null == attribution ? _self.attribution : attribution // ignore: cast_nullable_to_non_nullable
+as List<FeatureDto>,attribution: null == attribution ? _self.attribution : attribution // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -288,22 +288,22 @@ as String,
 
 
 /// @nodoc
-mixin _$Feature {
+mixin _$FeatureDto {
 
-@JsonKey(name: "type") String get type;@JsonKey(name: "geometry") Geometry get geometry;@JsonKey(name: "properties") Properties get properties;
-/// Create a copy of Feature
+@JsonKey(name: "type") String get type;@JsonKey(name: "geometry") GeometryDto get geometry;@JsonKey(name: "properties") PropertiesDto get properties;
+/// Create a copy of FeatureDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$FeatureCopyWith<Feature> get copyWith => _$FeatureCopyWithImpl<Feature>(this as Feature, _$identity);
+$FeatureDtoCopyWith<FeatureDto> get copyWith => _$FeatureDtoCopyWithImpl<FeatureDto>(this as FeatureDto, _$identity);
 
-  /// Serializes this Feature to a JSON map.
+  /// Serializes this FeatureDto to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Feature&&(identical(other.type, type) || other.type == type)&&(identical(other.geometry, geometry) || other.geometry == geometry)&&(identical(other.properties, properties) || other.properties == properties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FeatureDto&&(identical(other.type, type) || other.type == type)&&(identical(other.geometry, geometry) || other.geometry == geometry)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -312,66 +312,66 @@ int get hashCode => Object.hash(runtimeType,type,geometry,properties);
 
 @override
 String toString() {
-  return 'Feature(type: $type, geometry: $geometry, properties: $properties)';
+  return 'FeatureDto(type: $type, geometry: $geometry, properties: $properties)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $FeatureCopyWith<$Res>  {
-  factory $FeatureCopyWith(Feature value, $Res Function(Feature) _then) = _$FeatureCopyWithImpl;
+abstract mixin class $FeatureDtoCopyWith<$Res>  {
+  factory $FeatureDtoCopyWith(FeatureDto value, $Res Function(FeatureDto) _then) = _$FeatureDtoCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "type") String type,@JsonKey(name: "geometry") Geometry geometry,@JsonKey(name: "properties") Properties properties
+@JsonKey(name: "type") String type,@JsonKey(name: "geometry") GeometryDto geometry,@JsonKey(name: "properties") PropertiesDto properties
 });
 
 
-$GeometryCopyWith<$Res> get geometry;$PropertiesCopyWith<$Res> get properties;
+$GeometryDtoCopyWith<$Res> get geometry;$PropertiesDtoCopyWith<$Res> get properties;
 
 }
 /// @nodoc
-class _$FeatureCopyWithImpl<$Res>
-    implements $FeatureCopyWith<$Res> {
-  _$FeatureCopyWithImpl(this._self, this._then);
+class _$FeatureDtoCopyWithImpl<$Res>
+    implements $FeatureDtoCopyWith<$Res> {
+  _$FeatureDtoCopyWithImpl(this._self, this._then);
 
-  final Feature _self;
-  final $Res Function(Feature) _then;
+  final FeatureDto _self;
+  final $Res Function(FeatureDto) _then;
 
-/// Create a copy of Feature
+/// Create a copy of FeatureDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? geometry = null,Object? properties = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,geometry: null == geometry ? _self.geometry : geometry // ignore: cast_nullable_to_non_nullable
-as Geometry,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
-as Properties,
+as GeometryDto,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
+as PropertiesDto,
   ));
 }
-/// Create a copy of Feature
+/// Create a copy of FeatureDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$GeometryCopyWith<$Res> get geometry {
+$GeometryDtoCopyWith<$Res> get geometry {
   
-  return $GeometryCopyWith<$Res>(_self.geometry, (value) {
+  return $GeometryDtoCopyWith<$Res>(_self.geometry, (value) {
     return _then(_self.copyWith(geometry: value));
   });
-}/// Create a copy of Feature
+}/// Create a copy of FeatureDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$PropertiesCopyWith<$Res> get properties {
+$PropertiesDtoCopyWith<$Res> get properties {
   
-  return $PropertiesCopyWith<$Res>(_self.properties, (value) {
+  return $PropertiesDtoCopyWith<$Res>(_self.properties, (value) {
     return _then(_self.copyWith(properties: value));
   });
 }
 }
 
 
-/// Adds pattern-matching-related methods to [Feature].
-extension FeaturePatterns on Feature {
+/// Adds pattern-matching-related methods to [FeatureDto].
+extension FeatureDtoPatterns on FeatureDto {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -384,10 +384,10 @@ extension FeaturePatterns on Feature {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Feature value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _FeatureDto value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _Feature() when $default != null:
+case _FeatureDto() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -406,10 +406,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Feature value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _FeatureDto value)  $default,){
 final _that = this;
 switch (_that) {
-case _Feature():
+case _FeatureDto():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -427,10 +427,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Feature value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _FeatureDto value)?  $default,){
 final _that = this;
 switch (_that) {
-case _Feature() when $default != null:
+case _FeatureDto() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -448,9 +448,9 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "type")  String type, @JsonKey(name: "geometry")  Geometry geometry, @JsonKey(name: "properties")  Properties properties)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "type")  String type, @JsonKey(name: "geometry")  GeometryDto geometry, @JsonKey(name: "properties")  PropertiesDto properties)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _Feature() when $default != null:
+case _FeatureDto() when $default != null:
 return $default(_that.type,_that.geometry,_that.properties);case _:
   return orElse();
 
@@ -469,9 +469,9 @@ return $default(_that.type,_that.geometry,_that.properties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "type")  String type, @JsonKey(name: "geometry")  Geometry geometry, @JsonKey(name: "properties")  Properties properties)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "type")  String type, @JsonKey(name: "geometry")  GeometryDto geometry, @JsonKey(name: "properties")  PropertiesDto properties)  $default,) {final _that = this;
 switch (_that) {
-case _Feature():
+case _FeatureDto():
 return $default(_that.type,_that.geometry,_that.properties);case _:
   throw StateError('Unexpected subclass');
 
@@ -489,9 +489,9 @@ return $default(_that.type,_that.geometry,_that.properties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "type")  String type, @JsonKey(name: "geometry")  Geometry geometry, @JsonKey(name: "properties")  Properties properties)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "type")  String type, @JsonKey(name: "geometry")  GeometryDto geometry, @JsonKey(name: "properties")  PropertiesDto properties)?  $default,) {final _that = this;
 switch (_that) {
-case _Feature() when $default != null:
+case _FeatureDto() when $default != null:
 return $default(_that.type,_that.geometry,_that.properties);case _:
   return null;
 
@@ -503,28 +503,28 @@ return $default(_that.type,_that.geometry,_that.properties);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _Feature implements Feature {
-  const _Feature({@JsonKey(name: "type") required this.type, @JsonKey(name: "geometry") required this.geometry, @JsonKey(name: "properties") required this.properties});
-  factory _Feature.fromJson(Map<String, dynamic> json) => _$FeatureFromJson(json);
+class _FeatureDto implements FeatureDto {
+  const _FeatureDto({@JsonKey(name: "type") required this.type, @JsonKey(name: "geometry") required this.geometry, @JsonKey(name: "properties") required this.properties});
+  factory _FeatureDto.fromJson(Map<String, dynamic> json) => _$FeatureDtoFromJson(json);
 
 @override@JsonKey(name: "type") final  String type;
-@override@JsonKey(name: "geometry") final  Geometry geometry;
-@override@JsonKey(name: "properties") final  Properties properties;
+@override@JsonKey(name: "geometry") final  GeometryDto geometry;
+@override@JsonKey(name: "properties") final  PropertiesDto properties;
 
-/// Create a copy of Feature
+/// Create a copy of FeatureDto
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$FeatureCopyWith<_Feature> get copyWith => __$FeatureCopyWithImpl<_Feature>(this, _$identity);
+_$FeatureDtoCopyWith<_FeatureDto> get copyWith => __$FeatureDtoCopyWithImpl<_FeatureDto>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$FeatureToJson(this, );
+  return _$FeatureDtoToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Feature&&(identical(other.type, type) || other.type == type)&&(identical(other.geometry, geometry) || other.geometry == geometry)&&(identical(other.properties, properties) || other.properties == properties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FeatureDto&&(identical(other.type, type) || other.type == type)&&(identical(other.geometry, geometry) || other.geometry == geometry)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -533,59 +533,59 @@ int get hashCode => Object.hash(runtimeType,type,geometry,properties);
 
 @override
 String toString() {
-  return 'Feature(type: $type, geometry: $geometry, properties: $properties)';
+  return 'FeatureDto(type: $type, geometry: $geometry, properties: $properties)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$FeatureCopyWith<$Res> implements $FeatureCopyWith<$Res> {
-  factory _$FeatureCopyWith(_Feature value, $Res Function(_Feature) _then) = __$FeatureCopyWithImpl;
+abstract mixin class _$FeatureDtoCopyWith<$Res> implements $FeatureDtoCopyWith<$Res> {
+  factory _$FeatureDtoCopyWith(_FeatureDto value, $Res Function(_FeatureDto) _then) = __$FeatureDtoCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "type") String type,@JsonKey(name: "geometry") Geometry geometry,@JsonKey(name: "properties") Properties properties
+@JsonKey(name: "type") String type,@JsonKey(name: "geometry") GeometryDto geometry,@JsonKey(name: "properties") PropertiesDto properties
 });
 
 
-@override $GeometryCopyWith<$Res> get geometry;@override $PropertiesCopyWith<$Res> get properties;
+@override $GeometryDtoCopyWith<$Res> get geometry;@override $PropertiesDtoCopyWith<$Res> get properties;
 
 }
 /// @nodoc
-class __$FeatureCopyWithImpl<$Res>
-    implements _$FeatureCopyWith<$Res> {
-  __$FeatureCopyWithImpl(this._self, this._then);
+class __$FeatureDtoCopyWithImpl<$Res>
+    implements _$FeatureDtoCopyWith<$Res> {
+  __$FeatureDtoCopyWithImpl(this._self, this._then);
 
-  final _Feature _self;
-  final $Res Function(_Feature) _then;
+  final _FeatureDto _self;
+  final $Res Function(_FeatureDto) _then;
 
-/// Create a copy of Feature
+/// Create a copy of FeatureDto
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? geometry = null,Object? properties = null,}) {
-  return _then(_Feature(
+  return _then(_FeatureDto(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,geometry: null == geometry ? _self.geometry : geometry // ignore: cast_nullable_to_non_nullable
-as Geometry,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
-as Properties,
+as GeometryDto,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
+as PropertiesDto,
   ));
 }
 
-/// Create a copy of Feature
+/// Create a copy of FeatureDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$GeometryCopyWith<$Res> get geometry {
+$GeometryDtoCopyWith<$Res> get geometry {
   
-  return $GeometryCopyWith<$Res>(_self.geometry, (value) {
+  return $GeometryDtoCopyWith<$Res>(_self.geometry, (value) {
     return _then(_self.copyWith(geometry: value));
   });
-}/// Create a copy of Feature
+}/// Create a copy of FeatureDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$PropertiesCopyWith<$Res> get properties {
+$PropertiesDtoCopyWith<$Res> get properties {
   
-  return $PropertiesCopyWith<$Res>(_self.properties, (value) {
+  return $PropertiesDtoCopyWith<$Res>(_self.properties, (value) {
     return _then(_self.copyWith(properties: value));
   });
 }
@@ -593,22 +593,22 @@ $PropertiesCopyWith<$Res> get properties {
 
 
 /// @nodoc
-mixin _$Geometry {
+mixin _$GeometryDto {
 
 @JsonKey(name: "coordinates") List<double> get coordinates;@JsonKey(name: "type") String get type;
-/// Create a copy of Geometry
+/// Create a copy of GeometryDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$GeometryCopyWith<Geometry> get copyWith => _$GeometryCopyWithImpl<Geometry>(this as Geometry, _$identity);
+$GeometryDtoCopyWith<GeometryDto> get copyWith => _$GeometryDtoCopyWithImpl<GeometryDto>(this as GeometryDto, _$identity);
 
-  /// Serializes this Geometry to a JSON map.
+  /// Serializes this GeometryDto to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Geometry&&const DeepCollectionEquality().equals(other.coordinates, coordinates)&&(identical(other.type, type) || other.type == type));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GeometryDto&&const DeepCollectionEquality().equals(other.coordinates, coordinates)&&(identical(other.type, type) || other.type == type));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -617,15 +617,15 @@ int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(
 
 @override
 String toString() {
-  return 'Geometry(coordinates: $coordinates, type: $type)';
+  return 'GeometryDto(coordinates: $coordinates, type: $type)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $GeometryCopyWith<$Res>  {
-  factory $GeometryCopyWith(Geometry value, $Res Function(Geometry) _then) = _$GeometryCopyWithImpl;
+abstract mixin class $GeometryDtoCopyWith<$Res>  {
+  factory $GeometryDtoCopyWith(GeometryDto value, $Res Function(GeometryDto) _then) = _$GeometryDtoCopyWithImpl;
 @useResult
 $Res call({
 @JsonKey(name: "coordinates") List<double> coordinates,@JsonKey(name: "type") String type
@@ -636,14 +636,14 @@ $Res call({
 
 }
 /// @nodoc
-class _$GeometryCopyWithImpl<$Res>
-    implements $GeometryCopyWith<$Res> {
-  _$GeometryCopyWithImpl(this._self, this._then);
+class _$GeometryDtoCopyWithImpl<$Res>
+    implements $GeometryDtoCopyWith<$Res> {
+  _$GeometryDtoCopyWithImpl(this._self, this._then);
 
-  final Geometry _self;
-  final $Res Function(Geometry) _then;
+  final GeometryDto _self;
+  final $Res Function(GeometryDto) _then;
 
-/// Create a copy of Geometry
+/// Create a copy of GeometryDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? coordinates = null,Object? type = null,}) {
   return _then(_self.copyWith(
@@ -656,8 +656,8 @@ as String,
 }
 
 
-/// Adds pattern-matching-related methods to [Geometry].
-extension GeometryPatterns on Geometry {
+/// Adds pattern-matching-related methods to [GeometryDto].
+extension GeometryDtoPatterns on GeometryDto {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -670,10 +670,10 @@ extension GeometryPatterns on Geometry {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Geometry value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _GeometryDto value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _Geometry() when $default != null:
+case _GeometryDto() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -692,10 +692,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Geometry value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _GeometryDto value)  $default,){
 final _that = this;
 switch (_that) {
-case _Geometry():
+case _GeometryDto():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -713,10 +713,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Geometry value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _GeometryDto value)?  $default,){
 final _that = this;
 switch (_that) {
-case _Geometry() when $default != null:
+case _GeometryDto() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -736,7 +736,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "coordinates")  List<double> coordinates, @JsonKey(name: "type")  String type)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _Geometry() when $default != null:
+case _GeometryDto() when $default != null:
 return $default(_that.coordinates,_that.type);case _:
   return orElse();
 
@@ -757,7 +757,7 @@ return $default(_that.coordinates,_that.type);case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "coordinates")  List<double> coordinates, @JsonKey(name: "type")  String type)  $default,) {final _that = this;
 switch (_that) {
-case _Geometry():
+case _GeometryDto():
 return $default(_that.coordinates,_that.type);case _:
   throw StateError('Unexpected subclass');
 
@@ -777,7 +777,7 @@ return $default(_that.coordinates,_that.type);case _:
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "coordinates")  List<double> coordinates, @JsonKey(name: "type")  String type)?  $default,) {final _that = this;
 switch (_that) {
-case _Geometry() when $default != null:
+case _GeometryDto() when $default != null:
 return $default(_that.coordinates,_that.type);case _:
   return null;
 
@@ -789,9 +789,9 @@ return $default(_that.coordinates,_that.type);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _Geometry implements Geometry {
-  const _Geometry({@JsonKey(name: "coordinates") required final  List<double> coordinates, @JsonKey(name: "type") required this.type}): _coordinates = coordinates;
-  factory _Geometry.fromJson(Map<String, dynamic> json) => _$GeometryFromJson(json);
+class _GeometryDto implements GeometryDto {
+  const _GeometryDto({@JsonKey(name: "coordinates") required final  List<double> coordinates, @JsonKey(name: "type") required this.type}): _coordinates = coordinates;
+  factory _GeometryDto.fromJson(Map<String, dynamic> json) => _$GeometryDtoFromJson(json);
 
  final  List<double> _coordinates;
 @override@JsonKey(name: "coordinates") List<double> get coordinates {
@@ -802,20 +802,20 @@ class _Geometry implements Geometry {
 
 @override@JsonKey(name: "type") final  String type;
 
-/// Create a copy of Geometry
+/// Create a copy of GeometryDto
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$GeometryCopyWith<_Geometry> get copyWith => __$GeometryCopyWithImpl<_Geometry>(this, _$identity);
+_$GeometryDtoCopyWith<_GeometryDto> get copyWith => __$GeometryDtoCopyWithImpl<_GeometryDto>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$GeometryToJson(this, );
+  return _$GeometryDtoToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Geometry&&const DeepCollectionEquality().equals(other._coordinates, _coordinates)&&(identical(other.type, type) || other.type == type));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GeometryDto&&const DeepCollectionEquality().equals(other._coordinates, _coordinates)&&(identical(other.type, type) || other.type == type));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -824,15 +824,15 @@ int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(
 
 @override
 String toString() {
-  return 'Geometry(coordinates: $coordinates, type: $type)';
+  return 'GeometryDto(coordinates: $coordinates, type: $type)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$GeometryCopyWith<$Res> implements $GeometryCopyWith<$Res> {
-  factory _$GeometryCopyWith(_Geometry value, $Res Function(_Geometry) _then) = __$GeometryCopyWithImpl;
+abstract mixin class _$GeometryDtoCopyWith<$Res> implements $GeometryDtoCopyWith<$Res> {
+  factory _$GeometryDtoCopyWith(_GeometryDto value, $Res Function(_GeometryDto) _then) = __$GeometryDtoCopyWithImpl;
 @override @useResult
 $Res call({
 @JsonKey(name: "coordinates") List<double> coordinates,@JsonKey(name: "type") String type
@@ -843,17 +843,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$GeometryCopyWithImpl<$Res>
-    implements _$GeometryCopyWith<$Res> {
-  __$GeometryCopyWithImpl(this._self, this._then);
+class __$GeometryDtoCopyWithImpl<$Res>
+    implements _$GeometryDtoCopyWith<$Res> {
+  __$GeometryDtoCopyWithImpl(this._self, this._then);
 
-  final _Geometry _self;
-  final $Res Function(_Geometry) _then;
+  final _GeometryDto _self;
+  final $Res Function(_GeometryDto) _then;
 
-/// Create a copy of Geometry
+/// Create a copy of GeometryDto
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? coordinates = null,Object? type = null,}) {
-  return _then(_Geometry(
+  return _then(_GeometryDto(
 coordinates: null == coordinates ? _self._coordinates : coordinates // ignore: cast_nullable_to_non_nullable
 as List<double>,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,
@@ -865,22 +865,22 @@ as String,
 
 
 /// @nodoc
-mixin _$Properties {
+mixin _$PropertiesDto {
 
-@JsonKey(name: "name") String get name;@JsonKey(name: "name_preferred") String get namePreferred;@JsonKey(name: "mapbox_id") String get mapboxId;@JsonKey(name: "feature_type") String get featureType;@JsonKey(name: "full_address") String get fullAddress;@JsonKey(name: "place_formatted") String get placeFormatted;@JsonKey(name: "context") ContextDto get context;@JsonKey(name: "coordinates") CoordinatesDto get coordinates;@JsonKey(name: "bbox") List<double> get bbox;@JsonKey(name: "language") String get language;@JsonKey(name: "maki") String get maki;@JsonKey(name: "metadata") Metadata get metadata;
-/// Create a copy of Properties
+@JsonKey(name: "name") String get name;@JsonKey(name: "name_preferred") String get namePreferred;@JsonKey(name: "mapbox_id") String get mapboxId;@JsonKey(name: "feature_type") String get featureType;@JsonKey(name: "full_address") String get fullAddress;@JsonKey(name: "place_formatted") String get placeFormatted;@JsonKey(name: "context") ContextDto get context;@JsonKey(name: "coordinates") CoordinatesDto get coordinates;@JsonKey(name: "bbox") List<double> get bbox;@JsonKey(name: "language") String get language;@JsonKey(name: "maki") String get maki;@JsonKey(name: "metadata") MetadataDto get metadata;
+/// Create a copy of PropertiesDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$PropertiesCopyWith<Properties> get copyWith => _$PropertiesCopyWithImpl<Properties>(this as Properties, _$identity);
+$PropertiesDtoCopyWith<PropertiesDto> get copyWith => _$PropertiesDtoCopyWithImpl<PropertiesDto>(this as PropertiesDto, _$identity);
 
-  /// Serializes this Properties to a JSON map.
+  /// Serializes this PropertiesDto to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Properties&&(identical(other.name, name) || other.name == name)&&(identical(other.namePreferred, namePreferred) || other.namePreferred == namePreferred)&&(identical(other.mapboxId, mapboxId) || other.mapboxId == mapboxId)&&(identical(other.featureType, featureType) || other.featureType == featureType)&&(identical(other.fullAddress, fullAddress) || other.fullAddress == fullAddress)&&(identical(other.placeFormatted, placeFormatted) || other.placeFormatted == placeFormatted)&&(identical(other.context, context) || other.context == context)&&(identical(other.coordinates, coordinates) || other.coordinates == coordinates)&&const DeepCollectionEquality().equals(other.bbox, bbox)&&(identical(other.language, language) || other.language == language)&&(identical(other.maki, maki) || other.maki == maki)&&(identical(other.metadata, metadata) || other.metadata == metadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PropertiesDto&&(identical(other.name, name) || other.name == name)&&(identical(other.namePreferred, namePreferred) || other.namePreferred == namePreferred)&&(identical(other.mapboxId, mapboxId) || other.mapboxId == mapboxId)&&(identical(other.featureType, featureType) || other.featureType == featureType)&&(identical(other.fullAddress, fullAddress) || other.fullAddress == fullAddress)&&(identical(other.placeFormatted, placeFormatted) || other.placeFormatted == placeFormatted)&&(identical(other.context, context) || other.context == context)&&(identical(other.coordinates, coordinates) || other.coordinates == coordinates)&&const DeepCollectionEquality().equals(other.bbox, bbox)&&(identical(other.language, language) || other.language == language)&&(identical(other.maki, maki) || other.maki == maki)&&(identical(other.metadata, metadata) || other.metadata == metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -889,33 +889,33 @@ int get hashCode => Object.hash(runtimeType,name,namePreferred,mapboxId,featureT
 
 @override
 String toString() {
-  return 'Properties(name: $name, namePreferred: $namePreferred, mapboxId: $mapboxId, featureType: $featureType, fullAddress: $fullAddress, placeFormatted: $placeFormatted, context: $context, coordinates: $coordinates, bbox: $bbox, language: $language, maki: $maki, metadata: $metadata)';
+  return 'PropertiesDto(name: $name, namePreferred: $namePreferred, mapboxId: $mapboxId, featureType: $featureType, fullAddress: $fullAddress, placeFormatted: $placeFormatted, context: $context, coordinates: $coordinates, bbox: $bbox, language: $language, maki: $maki, metadata: $metadata)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $PropertiesCopyWith<$Res>  {
-  factory $PropertiesCopyWith(Properties value, $Res Function(Properties) _then) = _$PropertiesCopyWithImpl;
+abstract mixin class $PropertiesDtoCopyWith<$Res>  {
+  factory $PropertiesDtoCopyWith(PropertiesDto value, $Res Function(PropertiesDto) _then) = _$PropertiesDtoCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "name") String name,@JsonKey(name: "name_preferred") String namePreferred,@JsonKey(name: "mapbox_id") String mapboxId,@JsonKey(name: "feature_type") String featureType,@JsonKey(name: "full_address") String fullAddress,@JsonKey(name: "place_formatted") String placeFormatted,@JsonKey(name: "context") ContextDto context,@JsonKey(name: "coordinates") CoordinatesDto coordinates,@JsonKey(name: "bbox") List<double> bbox,@JsonKey(name: "language") String language,@JsonKey(name: "maki") String maki,@JsonKey(name: "metadata") Metadata metadata
+@JsonKey(name: "name") String name,@JsonKey(name: "name_preferred") String namePreferred,@JsonKey(name: "mapbox_id") String mapboxId,@JsonKey(name: "feature_type") String featureType,@JsonKey(name: "full_address") String fullAddress,@JsonKey(name: "place_formatted") String placeFormatted,@JsonKey(name: "context") ContextDto context,@JsonKey(name: "coordinates") CoordinatesDto coordinates,@JsonKey(name: "bbox") List<double> bbox,@JsonKey(name: "language") String language,@JsonKey(name: "maki") String maki,@JsonKey(name: "metadata") MetadataDto metadata
 });
 
 
-$ContextDtoCopyWith<$Res> get context;$CoordinatesDtoCopyWith<$Res> get coordinates;$MetadataCopyWith<$Res> get metadata;
+$ContextDtoCopyWith<$Res> get context;$CoordinatesDtoCopyWith<$Res> get coordinates;$MetadataDtoCopyWith<$Res> get metadata;
 
 }
 /// @nodoc
-class _$PropertiesCopyWithImpl<$Res>
-    implements $PropertiesCopyWith<$Res> {
-  _$PropertiesCopyWithImpl(this._self, this._then);
+class _$PropertiesDtoCopyWithImpl<$Res>
+    implements $PropertiesDtoCopyWith<$Res> {
+  _$PropertiesDtoCopyWithImpl(this._self, this._then);
 
-  final Properties _self;
-  final $Res Function(Properties) _then;
+  final PropertiesDto _self;
+  final $Res Function(PropertiesDto) _then;
 
-/// Create a copy of Properties
+/// Create a copy of PropertiesDto
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? namePreferred = null,Object? mapboxId = null,Object? featureType = null,Object? fullAddress = null,Object? placeFormatted = null,Object? context = null,Object? coordinates = null,Object? bbox = null,Object? language = null,Object? maki = null,Object? metadata = null,}) {
   return _then(_self.copyWith(
@@ -931,10 +931,10 @@ as CoordinatesDto,bbox: null == bbox ? _self.bbox : bbox // ignore: cast_nullabl
 as List<double>,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
 as String,maki: null == maki ? _self.maki : maki // ignore: cast_nullable_to_non_nullable
 as String,metadata: null == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
-as Metadata,
+as MetadataDto,
   ));
 }
-/// Create a copy of Properties
+/// Create a copy of PropertiesDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -943,7 +943,7 @@ $ContextDtoCopyWith<$Res> get context {
   return $ContextDtoCopyWith<$Res>(_self.context, (value) {
     return _then(_self.copyWith(context: value));
   });
-}/// Create a copy of Properties
+}/// Create a copy of PropertiesDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -952,21 +952,21 @@ $CoordinatesDtoCopyWith<$Res> get coordinates {
   return $CoordinatesDtoCopyWith<$Res>(_self.coordinates, (value) {
     return _then(_self.copyWith(coordinates: value));
   });
-}/// Create a copy of Properties
+}/// Create a copy of PropertiesDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$MetadataCopyWith<$Res> get metadata {
+$MetadataDtoCopyWith<$Res> get metadata {
   
-  return $MetadataCopyWith<$Res>(_self.metadata, (value) {
+  return $MetadataDtoCopyWith<$Res>(_self.metadata, (value) {
     return _then(_self.copyWith(metadata: value));
   });
 }
 }
 
 
-/// Adds pattern-matching-related methods to [Properties].
-extension PropertiesPatterns on Properties {
+/// Adds pattern-matching-related methods to [PropertiesDto].
+extension PropertiesDtoPatterns on PropertiesDto {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -979,10 +979,10 @@ extension PropertiesPatterns on Properties {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Properties value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _PropertiesDto value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _Properties() when $default != null:
+case _PropertiesDto() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -1001,10 +1001,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Properties value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _PropertiesDto value)  $default,){
 final _that = this;
 switch (_that) {
-case _Properties():
+case _PropertiesDto():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -1022,10 +1022,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Properties value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _PropertiesDto value)?  $default,){
 final _that = this;
 switch (_that) {
-case _Properties() when $default != null:
+case _PropertiesDto() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -1043,9 +1043,9 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "name")  String name, @JsonKey(name: "name_preferred")  String namePreferred, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "full_address")  String fullAddress, @JsonKey(name: "place_formatted")  String placeFormatted, @JsonKey(name: "context")  ContextDto context, @JsonKey(name: "coordinates")  CoordinatesDto coordinates, @JsonKey(name: "bbox")  List<double> bbox, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String maki, @JsonKey(name: "metadata")  Metadata metadata)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "name")  String name, @JsonKey(name: "name_preferred")  String namePreferred, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "full_address")  String fullAddress, @JsonKey(name: "place_formatted")  String placeFormatted, @JsonKey(name: "context")  ContextDto context, @JsonKey(name: "coordinates")  CoordinatesDto coordinates, @JsonKey(name: "bbox")  List<double> bbox, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String maki, @JsonKey(name: "metadata")  MetadataDto metadata)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _Properties() when $default != null:
+case _PropertiesDto() when $default != null:
 return $default(_that.name,_that.namePreferred,_that.mapboxId,_that.featureType,_that.fullAddress,_that.placeFormatted,_that.context,_that.coordinates,_that.bbox,_that.language,_that.maki,_that.metadata);case _:
   return orElse();
 
@@ -1064,9 +1064,9 @@ return $default(_that.name,_that.namePreferred,_that.mapboxId,_that.featureType,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "name")  String name, @JsonKey(name: "name_preferred")  String namePreferred, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "full_address")  String fullAddress, @JsonKey(name: "place_formatted")  String placeFormatted, @JsonKey(name: "context")  ContextDto context, @JsonKey(name: "coordinates")  CoordinatesDto coordinates, @JsonKey(name: "bbox")  List<double> bbox, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String maki, @JsonKey(name: "metadata")  Metadata metadata)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "name")  String name, @JsonKey(name: "name_preferred")  String namePreferred, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "full_address")  String fullAddress, @JsonKey(name: "place_formatted")  String placeFormatted, @JsonKey(name: "context")  ContextDto context, @JsonKey(name: "coordinates")  CoordinatesDto coordinates, @JsonKey(name: "bbox")  List<double> bbox, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String maki, @JsonKey(name: "metadata")  MetadataDto metadata)  $default,) {final _that = this;
 switch (_that) {
-case _Properties():
+case _PropertiesDto():
 return $default(_that.name,_that.namePreferred,_that.mapboxId,_that.featureType,_that.fullAddress,_that.placeFormatted,_that.context,_that.coordinates,_that.bbox,_that.language,_that.maki,_that.metadata);case _:
   throw StateError('Unexpected subclass');
 
@@ -1084,9 +1084,9 @@ return $default(_that.name,_that.namePreferred,_that.mapboxId,_that.featureType,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "name")  String name, @JsonKey(name: "name_preferred")  String namePreferred, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "full_address")  String fullAddress, @JsonKey(name: "place_formatted")  String placeFormatted, @JsonKey(name: "context")  ContextDto context, @JsonKey(name: "coordinates")  CoordinatesDto coordinates, @JsonKey(name: "bbox")  List<double> bbox, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String maki, @JsonKey(name: "metadata")  Metadata metadata)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "name")  String name, @JsonKey(name: "name_preferred")  String namePreferred, @JsonKey(name: "mapbox_id")  String mapboxId, @JsonKey(name: "feature_type")  String featureType, @JsonKey(name: "full_address")  String fullAddress, @JsonKey(name: "place_formatted")  String placeFormatted, @JsonKey(name: "context")  ContextDto context, @JsonKey(name: "coordinates")  CoordinatesDto coordinates, @JsonKey(name: "bbox")  List<double> bbox, @JsonKey(name: "language")  String language, @JsonKey(name: "maki")  String maki, @JsonKey(name: "metadata")  MetadataDto metadata)?  $default,) {final _that = this;
 switch (_that) {
-case _Properties() when $default != null:
+case _PropertiesDto() when $default != null:
 return $default(_that.name,_that.namePreferred,_that.mapboxId,_that.featureType,_that.fullAddress,_that.placeFormatted,_that.context,_that.coordinates,_that.bbox,_that.language,_that.maki,_that.metadata);case _:
   return null;
 
@@ -1098,9 +1098,9 @@ return $default(_that.name,_that.namePreferred,_that.mapboxId,_that.featureType,
 /// @nodoc
 @JsonSerializable()
 
-class _Properties implements Properties {
-  const _Properties({@JsonKey(name: "name") required this.name, @JsonKey(name: "name_preferred") required this.namePreferred, @JsonKey(name: "mapbox_id") required this.mapboxId, @JsonKey(name: "feature_type") required this.featureType, @JsonKey(name: "full_address") required this.fullAddress, @JsonKey(name: "place_formatted") required this.placeFormatted, @JsonKey(name: "context") required this.context, @JsonKey(name: "coordinates") required this.coordinates, @JsonKey(name: "bbox") required final  List<double> bbox, @JsonKey(name: "language") required this.language, @JsonKey(name: "maki") required this.maki, @JsonKey(name: "metadata") required this.metadata}): _bbox = bbox;
-  factory _Properties.fromJson(Map<String, dynamic> json) => _$PropertiesFromJson(json);
+class _PropertiesDto implements PropertiesDto {
+  const _PropertiesDto({@JsonKey(name: "name") required this.name, @JsonKey(name: "name_preferred") required this.namePreferred, @JsonKey(name: "mapbox_id") required this.mapboxId, @JsonKey(name: "feature_type") required this.featureType, @JsonKey(name: "full_address") required this.fullAddress, @JsonKey(name: "place_formatted") required this.placeFormatted, @JsonKey(name: "context") required this.context, @JsonKey(name: "coordinates") required this.coordinates, @JsonKey(name: "bbox") required final  List<double> bbox, @JsonKey(name: "language") required this.language, @JsonKey(name: "maki") required this.maki, @JsonKey(name: "metadata") required this.metadata}): _bbox = bbox;
+  factory _PropertiesDto.fromJson(Map<String, dynamic> json) => _$PropertiesDtoFromJson(json);
 
 @override@JsonKey(name: "name") final  String name;
 @override@JsonKey(name: "name_preferred") final  String namePreferred;
@@ -1119,22 +1119,22 @@ class _Properties implements Properties {
 
 @override@JsonKey(name: "language") final  String language;
 @override@JsonKey(name: "maki") final  String maki;
-@override@JsonKey(name: "metadata") final  Metadata metadata;
+@override@JsonKey(name: "metadata") final  MetadataDto metadata;
 
-/// Create a copy of Properties
+/// Create a copy of PropertiesDto
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$PropertiesCopyWith<_Properties> get copyWith => __$PropertiesCopyWithImpl<_Properties>(this, _$identity);
+_$PropertiesDtoCopyWith<_PropertiesDto> get copyWith => __$PropertiesDtoCopyWithImpl<_PropertiesDto>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$PropertiesToJson(this, );
+  return _$PropertiesDtoToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Properties&&(identical(other.name, name) || other.name == name)&&(identical(other.namePreferred, namePreferred) || other.namePreferred == namePreferred)&&(identical(other.mapboxId, mapboxId) || other.mapboxId == mapboxId)&&(identical(other.featureType, featureType) || other.featureType == featureType)&&(identical(other.fullAddress, fullAddress) || other.fullAddress == fullAddress)&&(identical(other.placeFormatted, placeFormatted) || other.placeFormatted == placeFormatted)&&(identical(other.context, context) || other.context == context)&&(identical(other.coordinates, coordinates) || other.coordinates == coordinates)&&const DeepCollectionEquality().equals(other._bbox, _bbox)&&(identical(other.language, language) || other.language == language)&&(identical(other.maki, maki) || other.maki == maki)&&(identical(other.metadata, metadata) || other.metadata == metadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PropertiesDto&&(identical(other.name, name) || other.name == name)&&(identical(other.namePreferred, namePreferred) || other.namePreferred == namePreferred)&&(identical(other.mapboxId, mapboxId) || other.mapboxId == mapboxId)&&(identical(other.featureType, featureType) || other.featureType == featureType)&&(identical(other.fullAddress, fullAddress) || other.fullAddress == fullAddress)&&(identical(other.placeFormatted, placeFormatted) || other.placeFormatted == placeFormatted)&&(identical(other.context, context) || other.context == context)&&(identical(other.coordinates, coordinates) || other.coordinates == coordinates)&&const DeepCollectionEquality().equals(other._bbox, _bbox)&&(identical(other.language, language) || other.language == language)&&(identical(other.maki, maki) || other.maki == maki)&&(identical(other.metadata, metadata) || other.metadata == metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1143,36 +1143,36 @@ int get hashCode => Object.hash(runtimeType,name,namePreferred,mapboxId,featureT
 
 @override
 String toString() {
-  return 'Properties(name: $name, namePreferred: $namePreferred, mapboxId: $mapboxId, featureType: $featureType, fullAddress: $fullAddress, placeFormatted: $placeFormatted, context: $context, coordinates: $coordinates, bbox: $bbox, language: $language, maki: $maki, metadata: $metadata)';
+  return 'PropertiesDto(name: $name, namePreferred: $namePreferred, mapboxId: $mapboxId, featureType: $featureType, fullAddress: $fullAddress, placeFormatted: $placeFormatted, context: $context, coordinates: $coordinates, bbox: $bbox, language: $language, maki: $maki, metadata: $metadata)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$PropertiesCopyWith<$Res> implements $PropertiesCopyWith<$Res> {
-  factory _$PropertiesCopyWith(_Properties value, $Res Function(_Properties) _then) = __$PropertiesCopyWithImpl;
+abstract mixin class _$PropertiesDtoCopyWith<$Res> implements $PropertiesDtoCopyWith<$Res> {
+  factory _$PropertiesDtoCopyWith(_PropertiesDto value, $Res Function(_PropertiesDto) _then) = __$PropertiesDtoCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "name") String name,@JsonKey(name: "name_preferred") String namePreferred,@JsonKey(name: "mapbox_id") String mapboxId,@JsonKey(name: "feature_type") String featureType,@JsonKey(name: "full_address") String fullAddress,@JsonKey(name: "place_formatted") String placeFormatted,@JsonKey(name: "context") ContextDto context,@JsonKey(name: "coordinates") CoordinatesDto coordinates,@JsonKey(name: "bbox") List<double> bbox,@JsonKey(name: "language") String language,@JsonKey(name: "maki") String maki,@JsonKey(name: "metadata") Metadata metadata
+@JsonKey(name: "name") String name,@JsonKey(name: "name_preferred") String namePreferred,@JsonKey(name: "mapbox_id") String mapboxId,@JsonKey(name: "feature_type") String featureType,@JsonKey(name: "full_address") String fullAddress,@JsonKey(name: "place_formatted") String placeFormatted,@JsonKey(name: "context") ContextDto context,@JsonKey(name: "coordinates") CoordinatesDto coordinates,@JsonKey(name: "bbox") List<double> bbox,@JsonKey(name: "language") String language,@JsonKey(name: "maki") String maki,@JsonKey(name: "metadata") MetadataDto metadata
 });
 
 
-@override $ContextDtoCopyWith<$Res> get context;@override $CoordinatesDtoCopyWith<$Res> get coordinates;@override $MetadataCopyWith<$Res> get metadata;
+@override $ContextDtoCopyWith<$Res> get context;@override $CoordinatesDtoCopyWith<$Res> get coordinates;@override $MetadataDtoCopyWith<$Res> get metadata;
 
 }
 /// @nodoc
-class __$PropertiesCopyWithImpl<$Res>
-    implements _$PropertiesCopyWith<$Res> {
-  __$PropertiesCopyWithImpl(this._self, this._then);
+class __$PropertiesDtoCopyWithImpl<$Res>
+    implements _$PropertiesDtoCopyWith<$Res> {
+  __$PropertiesDtoCopyWithImpl(this._self, this._then);
 
-  final _Properties _self;
-  final $Res Function(_Properties) _then;
+  final _PropertiesDto _self;
+  final $Res Function(_PropertiesDto) _then;
 
-/// Create a copy of Properties
+/// Create a copy of PropertiesDto
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? namePreferred = null,Object? mapboxId = null,Object? featureType = null,Object? fullAddress = null,Object? placeFormatted = null,Object? context = null,Object? coordinates = null,Object? bbox = null,Object? language = null,Object? maki = null,Object? metadata = null,}) {
-  return _then(_Properties(
+  return _then(_PropertiesDto(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,namePreferred: null == namePreferred ? _self.namePreferred : namePreferred // ignore: cast_nullable_to_non_nullable
 as String,mapboxId: null == mapboxId ? _self.mapboxId : mapboxId // ignore: cast_nullable_to_non_nullable
@@ -1185,11 +1185,11 @@ as CoordinatesDto,bbox: null == bbox ? _self._bbox : bbox // ignore: cast_nullab
 as List<double>,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
 as String,maki: null == maki ? _self.maki : maki // ignore: cast_nullable_to_non_nullable
 as String,metadata: null == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
-as Metadata,
+as MetadataDto,
   ));
 }
 
-/// Create a copy of Properties
+/// Create a copy of PropertiesDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -1198,7 +1198,7 @@ $ContextDtoCopyWith<$Res> get context {
   return $ContextDtoCopyWith<$Res>(_self.context, (value) {
     return _then(_self.copyWith(context: value));
   });
-}/// Create a copy of Properties
+}/// Create a copy of PropertiesDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -1207,13 +1207,13 @@ $CoordinatesDtoCopyWith<$Res> get coordinates {
   return $CoordinatesDtoCopyWith<$Res>(_self.coordinates, (value) {
     return _then(_self.copyWith(coordinates: value));
   });
-}/// Create a copy of Properties
+}/// Create a copy of PropertiesDto
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$MetadataCopyWith<$Res> get metadata {
+$MetadataDtoCopyWith<$Res> get metadata {
   
-  return $MetadataCopyWith<$Res>(_self.metadata, (value) {
+  return $MetadataDtoCopyWith<$Res>(_self.metadata, (value) {
     return _then(_self.copyWith(metadata: value));
   });
 }
@@ -2641,17 +2641,17 @@ as double,
 
 
 /// @nodoc
-mixin _$Metadata {
+mixin _$MetadataDto {
 
 
 
-  /// Serializes this Metadata to a JSON map.
+  /// Serializes this MetadataDto to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Metadata);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MetadataDto);
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2660,20 +2660,20 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'Metadata()';
+  return 'MetadataDto()';
 }
 
 
 }
 
 /// @nodoc
-class $MetadataCopyWith<$Res>  {
-$MetadataCopyWith(Metadata _, $Res Function(Metadata) __);
+class $MetadataDtoCopyWith<$Res>  {
+$MetadataDtoCopyWith(MetadataDto _, $Res Function(MetadataDto) __);
 }
 
 
-/// Adds pattern-matching-related methods to [Metadata].
-extension MetadataPatterns on Metadata {
+/// Adds pattern-matching-related methods to [MetadataDto].
+extension MetadataDtoPatterns on MetadataDto {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -2686,10 +2686,10 @@ extension MetadataPatterns on Metadata {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Metadata value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _MetadataDto value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _Metadata() when $default != null:
+case _MetadataDto() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -2708,10 +2708,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Metadata value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _MetadataDto value)  $default,){
 final _that = this;
 switch (_that) {
-case _Metadata():
+case _MetadataDto():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -2729,10 +2729,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Metadata value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _MetadataDto value)?  $default,){
 final _that = this;
 switch (_that) {
-case _Metadata() when $default != null:
+case _MetadataDto() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -2752,7 +2752,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function()?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _Metadata() when $default != null:
+case _MetadataDto() when $default != null:
 return $default();case _:
   return orElse();
 
@@ -2773,7 +2773,7 @@ return $default();case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function()  $default,) {final _that = this;
 switch (_that) {
-case _Metadata():
+case _MetadataDto():
 return $default();case _:
   throw StateError('Unexpected subclass');
 
@@ -2793,7 +2793,7 @@ return $default();case _:
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function()?  $default,) {final _that = this;
 switch (_that) {
-case _Metadata() when $default != null:
+case _MetadataDto() when $default != null:
 return $default();case _:
   return null;
 
@@ -2805,21 +2805,21 @@ return $default();case _:
 /// @nodoc
 @JsonSerializable()
 
-class _Metadata implements Metadata {
-  const _Metadata();
-  factory _Metadata.fromJson(Map<String, dynamic> json) => _$MetadataFromJson(json);
+class _MetadataDto implements MetadataDto {
+  const _MetadataDto();
+  factory _MetadataDto.fromJson(Map<String, dynamic> json) => _$MetadataDtoFromJson(json);
 
 
 
 
 @override
 Map<String, dynamic> toJson() {
-  return _$MetadataToJson(this, );
+  return _$MetadataDtoToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Metadata);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MetadataDto);
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -2828,7 +2828,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'Metadata()';
+  return 'MetadataDto()';
 }
 
 

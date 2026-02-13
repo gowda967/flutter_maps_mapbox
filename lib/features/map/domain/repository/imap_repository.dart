@@ -9,7 +9,7 @@ abstract interface class IMapRepository {
     SearchQuery request,
   );
 
-  Future<Either<Failure, PlaceProperties>> retrievePlace(
+  Future<Either<Failure, Properties>> retrievePlace(
     String id,
     String sessionToken,
   );

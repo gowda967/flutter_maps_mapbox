@@ -2,24 +2,21 @@ import 'package:flutter_map_mapbox/features/map/data/dtos/retrieve/retrieve_resp
 import 'package:flutter_map_mapbox/features/map/domain/entities/retrieve_response.dart';
 
 abstract class RetrieveResponseMapper {
-  static PlaceProperties toDomain(RetrieveResponse response) {
-    return response.map((value) {
-      final data = value.features.first.properties;
-      return PlaceProperties(
-        name: data.name,
-        namePreferred: data.namePreferred,
-        mapboxId: data.mapboxId,
-        featureType: data.featureType,
-        fullAddress: data.fullAddress,
-        placeFormatted: data.placeFormatted,
-        context: toContext(data.context),
-        coordinates: toCoordinates(data.coordinates),
-        bbox: null,
-        language: data.language,
-        maki: data.maki,
-        metadata: null,
-      );
-    });
+  static Properties toProperties(PropertiesDto data) {
+    return Properties(
+      name: data.name,
+      namePreferred: data.namePreferred,
+      mapboxId: data.mapboxId,
+      featureType: data.featureType,
+      fullAddress: data.fullAddress,
+      placeFormatted: data.placeFormatted,
+      context: toContext(data.context),
+      coordinates: toCoordinates(data.coordinates),
+      bbox: [],
+      language: data.language,
+      maki: data.maki,
+      metadata: toMetadata(data.metadata),
+    );
   }
 
   static Coordinates toCoordinates(CoordinatesDto dto) {
@@ -55,5 +52,9 @@ abstract class RetrieveResponseMapper {
 
   static District toDistrict(DistrictDto dist) {
     return District(id: dist.id, name: dist.name);
+  }
+
+  static Metadata toMetadata(MetadataDto dist) {
+    return Metadata();
   }
 }

@@ -1,4 +1,90 @@
-class PlaceProperties {
+import 'dart:convert';
+
+class RetrieveResponse {
+  String type;
+  List<Feature> features;
+  String attribution;
+
+  RetrieveResponse({
+    required this.type,
+    required this.features,
+    required this.attribution,
+  });
+
+  factory RetrieveResponse.fromRawJson(String str) =>
+      RetrieveResponse.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory RetrieveResponse.fromJson(Map<String, dynamic> json) =>
+      RetrieveResponse(
+        type: json["type"],
+        features: List<Feature>.from(
+          json["features"].map((x) => Feature.fromJson(x)),
+        ),
+        attribution: json["attribution"],
+      );
+
+  Map<String, dynamic> toJson() => {
+    "type": type,
+    "features": List<dynamic>.from(features.map((x) => x.toJson())),
+    "attribution": attribution,
+  };
+}
+
+class Feature {
+  String type;
+  Geometry geometry;
+  Properties properties;
+
+  Feature({
+    required this.type,
+    required this.geometry,
+    required this.properties,
+  });
+
+  factory Feature.fromRawJson(String str) => Feature.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory Feature.fromJson(Map<String, dynamic> json) => Feature(
+    type: json["type"],
+    geometry: Geometry.fromJson(json["geometry"]),
+    properties: Properties.fromJson(json["properties"]),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "type": type,
+    "geometry": geometry.toJson(),
+    "properties": properties.toJson(),
+  };
+}
+
+class Geometry {
+  List<double> coordinates;
+  String type;
+
+  Geometry({required this.coordinates, required this.type});
+
+  factory Geometry.fromRawJson(String str) =>
+      Geometry.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory Geometry.fromJson(Map<String, dynamic> json) => Geometry(
+    coordinates: List<double>.from(
+      json["coordinates"].map((x) => x?.toDouble()),
+    ),
+    type: json["type"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "coordinates": List<dynamic>.from(coordinates.map((x) => x)),
+    "type": type,
+  };
+}
+
+class Properties {
   String name;
   String namePreferred;
   String mapboxId;
@@ -7,12 +93,12 @@ class PlaceProperties {
   String placeFormatted;
   Context context;
   Coordinates coordinates;
-  List<double>? bbox;
+  List<double> bbox;
   String language;
   String maki;
-  Metadata? metadata;
+  Metadata metadata;
 
-  PlaceProperties({
+  Properties({
     required this.name,
     required this.namePreferred,
     required this.mapboxId,
@@ -27,21 +113,25 @@ class PlaceProperties {
     required this.metadata,
   });
 
-  factory PlaceProperties.fromJson(Map<String, dynamic> json) =>
-      PlaceProperties(
-        name: json["name"],
-        namePreferred: json["name_preferred"],
-        mapboxId: json["mapbox_id"],
-        featureType: json["feature_type"],
-        fullAddress: json["full_address"],
-        placeFormatted: json["place_formatted"],
-        context: Context.fromJson(json["context"]),
-        coordinates: Coordinates.fromJson(json["coordinates"]),
-        bbox: List<double>.from(json["bbox"].map((x) => x?.toDouble())),
-        language: json["language"],
-        maki: json["maki"],
-        metadata: Metadata.fromJson(json["metadata"]),
-      );
+  factory Properties.fromRawJson(String str) =>
+      Properties.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
+  factory Properties.fromJson(Map<String, dynamic> json) => Properties(
+    name: json["name"],
+    namePreferred: json["name_preferred"],
+    mapboxId: json["mapbox_id"],
+    featureType: json["feature_type"],
+    fullAddress: json["full_address"],
+    placeFormatted: json["place_formatted"],
+    context: Context.fromJson(json["context"]),
+    coordinates: Coordinates.fromJson(json["coordinates"]),
+    bbox: List<double>.from(json["bbox"].map((x) => x?.toDouble())),
+    language: json["language"],
+    maki: json["maki"],
+    metadata: Metadata.fromJson(json["metadata"]),
+  );
 
   Map<String, dynamic> toJson() => {
     "name": name,
@@ -52,10 +142,10 @@ class PlaceProperties {
     "place_formatted": placeFormatted,
     "context": context.toJson(),
     "coordinates": coordinates.toJson(),
-    "bbox": [],
+    "bbox": List<dynamic>.from(bbox.map((x) => x)),
     "language": language,
     "maki": maki,
-    "metadata": metadata,
+    "metadata": metadata.toJson(),
   };
 }
 
@@ -71,6 +161,10 @@ class Context {
     required this.district,
     required this.place,
   });
+
+  factory Context.fromRawJson(String str) => Context.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
 
   factory Context.fromJson(Map<String, dynamic> json) => Context(
     country: Country.fromJson(json["country"]),
@@ -100,6 +194,10 @@ class Country {
     required this.countryCodeAlpha3,
   });
 
+  factory Country.fromRawJson(String str) => Country.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
   factory Country.fromJson(Map<String, dynamic> json) => Country(
     id: json["id"],
     name: json["name"],
@@ -121,6 +219,11 @@ class District {
 
   District({required this.id, required this.name});
 
+  factory District.fromRawJson(String str) =>
+      District.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
   factory District.fromJson(Map<String, dynamic> json) =>
       District(id: json["id"], name: json["name"]);
 
@@ -139,6 +242,11 @@ class Region {
     required this.regionCode,
     required this.regionCodeFull,
   });
+
+  factory Region.fromRawJson(String str) => Region.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
   factory Region.fromJson(Map<String, dynamic> json) => Region(
     id: json["id"],
     name: json["name"],
@@ -160,6 +268,11 @@ class Coordinates {
 
   Coordinates({required this.latitude, required this.longitude});
 
+  factory Coordinates.fromRawJson(String str) =>
+      Coordinates.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
+
   factory Coordinates.fromJson(Map<String, dynamic> json) => Coordinates(
     latitude: json["latitude"]?.toDouble(),
     longitude: json["longitude"]?.toDouble(),
@@ -173,6 +286,11 @@ class Coordinates {
 
 class Metadata {
   Metadata();
+
+  factory Metadata.fromRawJson(String str) =>
+      Metadata.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
 
   factory Metadata.fromJson(Map<String, dynamic> json) => Metadata();
 

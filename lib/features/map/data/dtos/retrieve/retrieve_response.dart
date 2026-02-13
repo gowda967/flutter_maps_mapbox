@@ -4,43 +4,43 @@ part 'retrieve_response.freezed.dart';
 part 'retrieve_response.g.dart';
 
 @freezed
-abstract class RetrieveResponse with _$RetrieveResponse {
-  const factory RetrieveResponse({
+abstract class RetrieveResponseDto with _$RetrieveResponseDto {
+  const factory RetrieveResponseDto({
     @JsonKey(name: "type") required String type,
-    @JsonKey(name: "features") required List<Feature> features,
+    @JsonKey(name: "features") required List<FeatureDto> features,
     @JsonKey(name: "attribution") required String attribution,
-  }) = _RetrieveResponse;
+  }) = _RetrieveResponseDto;
 
-  factory RetrieveResponse.fromJson(Map<String, dynamic> json) =>
-      _$RetrieveResponseFromJson(json);
+  factory RetrieveResponseDto.fromJson(Map<String, dynamic> json) =>
+      _$RetrieveResponseDtoFromJson(json);
 }
 
 @freezed
-abstract class Feature with _$Feature {
-  const factory Feature({
+abstract class FeatureDto with _$FeatureDto {
+  const factory FeatureDto({
     @JsonKey(name: "type") required String type,
-    @JsonKey(name: "geometry") required Geometry geometry,
-    @JsonKey(name: "properties") required Properties properties,
-  }) = _Feature;
+    @JsonKey(name: "geometry") required GeometryDto geometry,
+    @JsonKey(name: "properties") required PropertiesDto properties,
+  }) = _FeatureDto;
 
-  factory Feature.fromJson(Map<String, dynamic> json) =>
-      _$FeatureFromJson(json);
+  factory FeatureDto.fromJson(Map<String, dynamic> json) =>
+      _$FeatureDtoFromJson(json);
 }
 
 @freezed
-abstract class Geometry with _$Geometry {
-  const factory Geometry({
+abstract class GeometryDto with _$GeometryDto {
+  const factory GeometryDto({
     @JsonKey(name: "coordinates") required List<double> coordinates,
     @JsonKey(name: "type") required String type,
-  }) = _Geometry;
+  }) = _GeometryDto;
 
-  factory Geometry.fromJson(Map<String, dynamic> json) =>
-      _$GeometryFromJson(json);
+  factory GeometryDto.fromJson(Map<String, dynamic> json) =>
+      _$GeometryDtoFromJson(json);
 }
 
 @freezed
-abstract class Properties with _$Properties {
-  const factory Properties({
+abstract class PropertiesDto with _$PropertiesDto {
+  const factory PropertiesDto({
     @JsonKey(name: "name") required String name,
     @JsonKey(name: "name_preferred") required String namePreferred,
     @JsonKey(name: "mapbox_id") required String mapboxId,
@@ -52,11 +52,11 @@ abstract class Properties with _$Properties {
     @JsonKey(name: "bbox") required List<double> bbox,
     @JsonKey(name: "language") required String language,
     @JsonKey(name: "maki") required String maki,
-    @JsonKey(name: "metadata") required Metadata metadata,
-  }) = _Properties;
+    @JsonKey(name: "metadata") required MetadataDto metadata,
+  }) = _PropertiesDto;
 
-  factory Properties.fromJson(Map<String, dynamic> json) =>
-      _$PropertiesFromJson(json);
+  factory PropertiesDto.fromJson(Map<String, dynamic> json) =>
+      _$PropertiesDtoFromJson(json);
 }
 
 @freezed
@@ -121,9 +121,9 @@ abstract class CoordinatesDto with _$CoordinatesDto {
 }
 
 @freezed
-abstract class Metadata with _$Metadata {
-  const factory Metadata() = _Metadata;
+abstract class MetadataDto with _$MetadataDto {
+  const factory MetadataDto() = _MetadataDto;
 
-  factory Metadata.fromJson(Map<String, dynamic> json) =>
-      _$MetadataFromJson(json);
+  factory MetadataDto.fromJson(Map<String, dynamic> json) =>
+      _$MetadataDtoFromJson(json);
 }

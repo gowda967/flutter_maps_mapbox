@@ -6,66 +6,72 @@ part of 'retrieve_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_RetrieveResponse _$RetrieveResponseFromJson(Map<String, dynamic> json) =>
-    _RetrieveResponse(
+_RetrieveResponseDto _$RetrieveResponseDtoFromJson(Map<String, dynamic> json) =>
+    _RetrieveResponseDto(
       type: json['type'] as String,
       features: (json['features'] as List<dynamic>)
-          .map((e) => Feature.fromJson(e as Map<String, dynamic>))
+          .map((e) => FeatureDto.fromJson(e as Map<String, dynamic>))
           .toList(),
       attribution: json['attribution'] as String,
     );
 
-Map<String, dynamic> _$RetrieveResponseToJson(_RetrieveResponse instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      'features': instance.features,
-      'attribution': instance.attribution,
-    };
-
-_Feature _$FeatureFromJson(Map<String, dynamic> json) => _Feature(
-  type: json['type'] as String,
-  geometry: Geometry.fromJson(json['geometry'] as Map<String, dynamic>),
-  properties: Properties.fromJson(json['properties'] as Map<String, dynamic>),
-);
-
-Map<String, dynamic> _$FeatureToJson(_Feature instance) => <String, dynamic>{
+Map<String, dynamic> _$RetrieveResponseDtoToJson(
+  _RetrieveResponseDto instance,
+) => <String, dynamic>{
   'type': instance.type,
-  'geometry': instance.geometry,
-  'properties': instance.properties,
+  'features': instance.features,
+  'attribution': instance.attribution,
 };
 
-_Geometry _$GeometryFromJson(Map<String, dynamic> json) => _Geometry(
+_FeatureDto _$FeatureDtoFromJson(Map<String, dynamic> json) => _FeatureDto(
+  type: json['type'] as String,
+  geometry: GeometryDto.fromJson(json['geometry'] as Map<String, dynamic>),
+  properties: PropertiesDto.fromJson(
+    json['properties'] as Map<String, dynamic>,
+  ),
+);
+
+Map<String, dynamic> _$FeatureDtoToJson(_FeatureDto instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      'geometry': instance.geometry,
+      'properties': instance.properties,
+    };
+
+_GeometryDto _$GeometryDtoFromJson(Map<String, dynamic> json) => _GeometryDto(
   coordinates: (json['coordinates'] as List<dynamic>)
       .map((e) => (e as num).toDouble())
       .toList(),
   type: json['type'] as String,
 );
 
-Map<String, dynamic> _$GeometryToJson(_Geometry instance) => <String, dynamic>{
-  'coordinates': instance.coordinates,
-  'type': instance.type,
-};
+Map<String, dynamic> _$GeometryDtoToJson(_GeometryDto instance) =>
+    <String, dynamic>{
+      'coordinates': instance.coordinates,
+      'type': instance.type,
+    };
 
-_Properties _$PropertiesFromJson(Map<String, dynamic> json) => _Properties(
-  name: json['name'] as String,
-  namePreferred: json['name_preferred'] as String,
-  mapboxId: json['mapbox_id'] as String,
-  featureType: json['feature_type'] as String,
-  fullAddress: json['full_address'] as String,
-  placeFormatted: json['place_formatted'] as String,
-  context: ContextDto.fromJson(json['context'] as Map<String, dynamic>),
-  coordinates: CoordinatesDto.fromJson(
-    json['coordinates'] as Map<String, dynamic>,
-  ),
-  bbox: (json['bbox'] as List<dynamic>)
-      .map((e) => (e as num).toDouble())
-      .toList(),
-  language: json['language'] as String,
-  maki: json['maki'] as String,
-  metadata: Metadata.fromJson(json['metadata'] as Map<String, dynamic>),
-);
+_PropertiesDto _$PropertiesDtoFromJson(Map<String, dynamic> json) =>
+    _PropertiesDto(
+      name: json['name'] as String,
+      namePreferred: json['name_preferred'] as String,
+      mapboxId: json['mapbox_id'] as String,
+      featureType: json['feature_type'] as String,
+      fullAddress: json['full_address'] as String,
+      placeFormatted: json['place_formatted'] as String,
+      context: ContextDto.fromJson(json['context'] as Map<String, dynamic>),
+      coordinates: CoordinatesDto.fromJson(
+        json['coordinates'] as Map<String, dynamic>,
+      ),
+      bbox: (json['bbox'] as List<dynamic>)
+          .map((e) => (e as num).toDouble())
+          .toList(),
+      language: json['language'] as String,
+      maki: json['maki'] as String,
+      metadata: MetadataDto.fromJson(json['metadata'] as Map<String, dynamic>),
+    );
 
-Map<String, dynamic> _$PropertiesToJson(_Properties instance) =>
+Map<String, dynamic> _$PropertiesDtoToJson(_PropertiesDto instance) =>
     <String, dynamic>{
       'name': instance.name,
       'name_preferred': instance.namePreferred,
@@ -144,7 +150,7 @@ Map<String, dynamic> _$CoordinatesDtoToJson(_CoordinatesDto instance) =>
       'longitude': instance.longitude,
     };
 
-_Metadata _$MetadataFromJson(Map<String, dynamic> json) => _Metadata();
+_MetadataDto _$MetadataDtoFromJson(Map<String, dynamic> json) => _MetadataDto();
 
-Map<String, dynamic> _$MetadataToJson(_Metadata instance) =>
+Map<String, dynamic> _$MetadataDtoToJson(_MetadataDto instance) =>
     <String, dynamic>{};

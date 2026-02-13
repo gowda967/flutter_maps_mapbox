@@ -1,9 +1,11 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_map_mapbox/common/exception/failure.dart';
 import 'package:flutter_map_mapbox/common/mixins/dio_exceptions.dart';
 import 'package:flutter_map_mapbox/features/map/data/dtos/retrieve/retrieve_response.dart';
 import 'package:flutter_map_mapbox/features/map/data/mappers/place_suggession_maper.dart';
-import 'package:flutter_map_mapbox/features/map/data/mappers/search_query_mapper.dart';
+import 'package:flutter_map_mapbox/features/map/data/mappers/retrieve_response_mapper.dart';
 import 'package:flutter_map_mapbox/features/map/data/source/mapbox_source.dart';
 import 'package:flutter_map_mapbox/features/map/domain/entities/place_suggestion.dart';
 import 'package:flutter_map_mapbox/features/map/domain/entities/retrieve_response.dart';
@@ -45,15 +47,16 @@ class MapRepository with DioExceptionMapper implements IMapRepository {
   }
 
   @override
-  Future<Either<Failure, PlaceProperties>> retrievePlace(
+  Future<Either<Failure, Properties>> retrievePlace(
     String id,
     String sessionToken,
   ) async {
     try {
       final response = await _mapboxSource.retrievePlace(id, sessionToken);
-      return Right(
-        PlaceProperties.fromJson(RetrieveResponse.fromJson(response)),
-      );
+      final data = RetrieveResponse.fromJson(
+        jsonDecode(response.toString()),
+      ).features.map((e) => e.properties).toList();
+      return Right(data.first);
     } on DioException catch (e, s) {
       throw left(mapDioExceptionToFailure(e, s));
     } catch (e, s) {
