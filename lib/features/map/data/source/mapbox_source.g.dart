@@ -62,9 +62,9 @@ class _MapboxSource implements MapboxSource {
   }
 
   @override
-  Future<Object> retrievePlace(String id) async {
+  Future<Object> retrievePlace(String id, String sessionToken) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'session_token': sessionToken};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<Object>(

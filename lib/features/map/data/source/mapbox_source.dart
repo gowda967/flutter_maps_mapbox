@@ -25,5 +25,8 @@ abstract class MapboxSource {
   );
 
   @GET('/search/searchbox/v1/retrieve/{id}')
-  Future<Object> retrievePlace(@Path('id') String id);
+  Future<Object> retrievePlace(
+    @Path('id') String id,
+    @Query('session_token') String sessionToken,
+  );
 }

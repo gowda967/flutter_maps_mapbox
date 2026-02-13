@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_map_mapbox/core/theme/app_pallete.dart';
 import 'package:flutter_map_mapbox/features/map/domain/entities/place_suggestion.dart';
 import 'package:flutter_map_mapbox/features/map/domain/entities/search_query.dart';
 import 'package:flutter_map_mapbox/features/map/presentation/provider/search_place_provider.dart';
@@ -68,7 +69,6 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                   if (suggestions.isNotEmpty)
                     SingleChildScrollView(
                       child: ListView.builder(
-                        // physics: ScrollPhysics(),
                         scrollDirection: Axis.vertical,
                         shrinkWrap: true,
                         itemCount: suggestions.length,
@@ -76,10 +76,13 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                           final place = suggestions[index];
                           return ListTile(
                             dense: true,
+                            hoverColor: AppPallete.backgroundColor,
                             leading: Icon(Icons.location_on, size: 20),
                             title: Text(place.name),
                             subtitle: Text(place.fullAddress ?? ''),
-                            onTap: () {},
+                            onTap: () {
+                              print(place);
+                            },
                           );
                         },
                       ),
