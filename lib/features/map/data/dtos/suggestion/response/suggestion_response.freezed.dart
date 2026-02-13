@@ -290,13 +290,7 @@ as String,
 /// @nodoc
 mixin _$SuggestionDto {
 
-@JsonKey(name: "name") String get name;@JsonKey(name: "mapbox_id") String get mapboxId;@JsonKey(name: "feature_type") String get featureType;@JsonKey(name: "address") String? get address;// ✅ Nullable
-@JsonKey(name: "full_address") String? get fullAddress;// ✅ Nullable
-@JsonKey(name: "place_formatted") String? get placeFormatted;// ✅ Nullable
-@JsonKey(name: "context") Context get context;@JsonKey(name: "language") String get language;@JsonKey(name: "maki") String? get maki;// ✅ Nullable
-@JsonKey(name: "poi_category") List<String> get poiCategory;@JsonKey(name: "poi_category_ids") List<String> get poiCategoryIds;@JsonKey(name: "external_ids") ExternalIds? get externalIds;// ✅ Nullable
-@JsonKey(name: "metadata") Metadata? get metadata;// ✅ Nullable
-@JsonKey(name: "distance") int get distance;
+@JsonKey(name: "name") String get name;@JsonKey(name: "mapbox_id") String get mapboxId;@JsonKey(name: "feature_type") String get featureType;@JsonKey(name: "address") String? get address;@JsonKey(name: "full_address") String? get fullAddress;@JsonKey(name: "place_formatted") String? get placeFormatted;@JsonKey(name: "context") Context get context;@JsonKey(name: "language") String get language;@JsonKey(name: "maki") String? get maki;@JsonKey(name: "poi_category") List<String> get poiCategory;@JsonKey(name: "poi_category_ids") List<String> get poiCategoryIds;@JsonKey(name: "external_ids") ExternalIds? get externalIds;@JsonKey(name: "metadata") Metadata? get metadata;@JsonKey(name: "distance") int get distance;
 /// Create a copy of SuggestionDto
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -543,17 +537,12 @@ class _SuggestionDto implements SuggestionDto {
 @override@JsonKey(name: "mapbox_id") final  String mapboxId;
 @override@JsonKey(name: "feature_type") final  String featureType;
 @override@JsonKey(name: "address") final  String? address;
-// ✅ Nullable
 @override@JsonKey(name: "full_address") final  String? fullAddress;
-// ✅ Nullable
 @override@JsonKey(name: "place_formatted") final  String? placeFormatted;
-// ✅ Nullable
 @override@JsonKey(name: "context") final  Context context;
 @override@JsonKey(name: "language") final  String language;
 @override@JsonKey(name: "maki") final  String? maki;
-// ✅ Nullable
  final  List<String> _poiCategory;
-// ✅ Nullable
 @override@JsonKey(name: "poi_category") List<String> get poiCategory {
   if (_poiCategory is EqualUnmodifiableListView) return _poiCategory;
   // ignore: implicit_dynamic_type
@@ -568,9 +557,7 @@ class _SuggestionDto implements SuggestionDto {
 }
 
 @override@JsonKey(name: "external_ids") final  ExternalIds? externalIds;
-// ✅ Nullable
 @override@JsonKey(name: "metadata") final  Metadata? metadata;
-// ✅ Nullable
 @override@JsonKey(name: "distance") final  int distance;
 
 /// Create a copy of SuggestionDto
@@ -683,9 +670,7 @@ $MetadataCopyWith<$Res>? get metadata {
 /// @nodoc
 mixin _$Context {
 
-@JsonKey(name: "country") Country get country;@JsonKey(name: "postcode") Place? get postcode;// ✅ Nullable
-@JsonKey(name: "place") Place? get place;// ✅ Nullable
-@JsonKey(name: "street") Street? get street;
+@JsonKey(name: "country") Country? get country;@JsonKey(name: "postcode") Place? get postcode;@JsonKey(name: "place") Place? get place;@JsonKey(name: "street") Street? get street;
 /// Create a copy of Context
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -718,11 +703,11 @@ abstract mixin class $ContextCopyWith<$Res>  {
   factory $ContextCopyWith(Context value, $Res Function(Context) _then) = _$ContextCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "country") Country country,@JsonKey(name: "postcode") Place? postcode,@JsonKey(name: "place") Place? place,@JsonKey(name: "street") Street? street
+@JsonKey(name: "country") Country? country,@JsonKey(name: "postcode") Place? postcode,@JsonKey(name: "place") Place? place,@JsonKey(name: "street") Street? street
 });
 
 
-$CountryCopyWith<$Res> get country;$PlaceCopyWith<$Res>? get postcode;$PlaceCopyWith<$Res>? get place;$StreetCopyWith<$Res>? get street;
+$CountryCopyWith<$Res>? get country;$PlaceCopyWith<$Res>? get postcode;$PlaceCopyWith<$Res>? get place;$StreetCopyWith<$Res>? get street;
 
 }
 /// @nodoc
@@ -735,10 +720,10 @@ class _$ContextCopyWithImpl<$Res>
 
 /// Create a copy of Context
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? country = null,Object? postcode = freezed,Object? place = freezed,Object? street = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? country = freezed,Object? postcode = freezed,Object? place = freezed,Object? street = freezed,}) {
   return _then(_self.copyWith(
-country: null == country ? _self.country : country // ignore: cast_nullable_to_non_nullable
-as Country,postcode: freezed == postcode ? _self.postcode : postcode // ignore: cast_nullable_to_non_nullable
+country: freezed == country ? _self.country : country // ignore: cast_nullable_to_non_nullable
+as Country?,postcode: freezed == postcode ? _self.postcode : postcode // ignore: cast_nullable_to_non_nullable
 as Place?,place: freezed == place ? _self.place : place // ignore: cast_nullable_to_non_nullable
 as Place?,street: freezed == street ? _self.street : street // ignore: cast_nullable_to_non_nullable
 as Street?,
@@ -748,9 +733,12 @@ as Street?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$CountryCopyWith<$Res> get country {
-  
-  return $CountryCopyWith<$Res>(_self.country, (value) {
+$CountryCopyWith<$Res>? get country {
+    if (_self.country == null) {
+    return null;
+  }
+
+  return $CountryCopyWith<$Res>(_self.country!, (value) {
     return _then(_self.copyWith(country: value));
   });
 }/// Create a copy of Context
@@ -871,7 +859,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "country")  Country country, @JsonKey(name: "postcode")  Place? postcode, @JsonKey(name: "place")  Place? place, @JsonKey(name: "street")  Street? street)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "country")  Country? country, @JsonKey(name: "postcode")  Place? postcode, @JsonKey(name: "place")  Place? place, @JsonKey(name: "street")  Street? street)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Context() when $default != null:
 return $default(_that.country,_that.postcode,_that.place,_that.street);case _:
@@ -892,7 +880,7 @@ return $default(_that.country,_that.postcode,_that.place,_that.street);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "country")  Country country, @JsonKey(name: "postcode")  Place? postcode, @JsonKey(name: "place")  Place? place, @JsonKey(name: "street")  Street? street)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "country")  Country? country, @JsonKey(name: "postcode")  Place? postcode, @JsonKey(name: "place")  Place? place, @JsonKey(name: "street")  Street? street)  $default,) {final _that = this;
 switch (_that) {
 case _Context():
 return $default(_that.country,_that.postcode,_that.place,_that.street);case _:
@@ -912,7 +900,7 @@ return $default(_that.country,_that.postcode,_that.place,_that.street);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "country")  Country country, @JsonKey(name: "postcode")  Place? postcode, @JsonKey(name: "place")  Place? place, @JsonKey(name: "street")  Street? street)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "country")  Country? country, @JsonKey(name: "postcode")  Place? postcode, @JsonKey(name: "place")  Place? place, @JsonKey(name: "street")  Street? street)?  $default,) {final _that = this;
 switch (_that) {
 case _Context() when $default != null:
 return $default(_that.country,_that.postcode,_that.place,_that.street);case _:
@@ -930,11 +918,9 @@ class _Context implements Context {
   const _Context({@JsonKey(name: "country") required this.country, @JsonKey(name: "postcode") this.postcode, @JsonKey(name: "place") this.place, @JsonKey(name: "street") this.street});
   factory _Context.fromJson(Map<String, dynamic> json) => _$ContextFromJson(json);
 
-@override@JsonKey(name: "country") final  Country country;
+@override@JsonKey(name: "country") final  Country? country;
 @override@JsonKey(name: "postcode") final  Place? postcode;
-// ✅ Nullable
 @override@JsonKey(name: "place") final  Place? place;
-// ✅ Nullable
 @override@JsonKey(name: "street") final  Street? street;
 
 /// Create a copy of Context
@@ -970,11 +956,11 @@ abstract mixin class _$ContextCopyWith<$Res> implements $ContextCopyWith<$Res> {
   factory _$ContextCopyWith(_Context value, $Res Function(_Context) _then) = __$ContextCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "country") Country country,@JsonKey(name: "postcode") Place? postcode,@JsonKey(name: "place") Place? place,@JsonKey(name: "street") Street? street
+@JsonKey(name: "country") Country? country,@JsonKey(name: "postcode") Place? postcode,@JsonKey(name: "place") Place? place,@JsonKey(name: "street") Street? street
 });
 
 
-@override $CountryCopyWith<$Res> get country;@override $PlaceCopyWith<$Res>? get postcode;@override $PlaceCopyWith<$Res>? get place;@override $StreetCopyWith<$Res>? get street;
+@override $CountryCopyWith<$Res>? get country;@override $PlaceCopyWith<$Res>? get postcode;@override $PlaceCopyWith<$Res>? get place;@override $StreetCopyWith<$Res>? get street;
 
 }
 /// @nodoc
@@ -987,10 +973,10 @@ class __$ContextCopyWithImpl<$Res>
 
 /// Create a copy of Context
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? country = null,Object? postcode = freezed,Object? place = freezed,Object? street = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? country = freezed,Object? postcode = freezed,Object? place = freezed,Object? street = freezed,}) {
   return _then(_Context(
-country: null == country ? _self.country : country // ignore: cast_nullable_to_non_nullable
-as Country,postcode: freezed == postcode ? _self.postcode : postcode // ignore: cast_nullable_to_non_nullable
+country: freezed == country ? _self.country : country // ignore: cast_nullable_to_non_nullable
+as Country?,postcode: freezed == postcode ? _self.postcode : postcode // ignore: cast_nullable_to_non_nullable
 as Place?,place: freezed == place ? _self.place : place // ignore: cast_nullable_to_non_nullable
 as Place?,street: freezed == street ? _self.street : street // ignore: cast_nullable_to_non_nullable
 as Street?,
@@ -1001,9 +987,12 @@ as Street?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$CountryCopyWith<$Res> get country {
-  
-  return $CountryCopyWith<$Res>(_self.country, (value) {
+$CountryCopyWith<$Res>? get country {
+    if (_self.country == null) {
+    return null;
+  }
+
+  return $CountryCopyWith<$Res>(_self.country!, (value) {
     return _then(_self.copyWith(country: value));
   });
 }/// Create a copy of Context
@@ -1318,8 +1307,7 @@ as String,
 /// @nodoc
 mixin _$Place {
 
-@JsonKey(name: "id") String? get id;// ✅ Nullable
-@JsonKey(name: "name") String get name;
+@JsonKey(name: "id") String? get id;@JsonKey(name: "name") String get name;
 /// Create a copy of Place
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1518,7 +1506,6 @@ class _Place implements Place {
   factory _Place.fromJson(Map<String, dynamic> json) => _$PlaceFromJson(json);
 
 @override@JsonKey(name: "id") final  String? id;
-// ✅ Nullable
 @override@JsonKey(name: "name") final  String name;
 
 /// Create a copy of Place

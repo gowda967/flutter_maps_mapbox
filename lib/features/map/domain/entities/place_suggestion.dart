@@ -25,7 +25,7 @@ class Suggestion {
 }
 
 class PlaceContext {
-  final String country;
+  final String? country;
   final String? city;
   final String? street;
 

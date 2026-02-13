@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_map_mapbox/features/map/domain/entities/place_suggestion.dart';
 import 'package:flutter_map_mapbox/features/map/domain/entities/search_query.dart';
 import 'package:flutter_map_mapbox/features/map/presentation/provider/search_place_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,16 +18,20 @@ class MapScreen extends ConsumerStatefulWidget {
 class _MapScreenState extends ConsumerState<MapScreen> {
   mp.MapboxMap? mapboxMapController;
   StreamSubscription? userPositionStream;
+  late TextEditingController searchController;
+  List<Suggestion> suggestions = [];
 
   @override
   void initState() {
     super.initState();
     _setupPositionTracking();
+    searchController = TextEditingController();
   }
 
   @override
   void dispose() {
     userPositionStream?.cancel();
+    searchController.dispose();
     super.dispose();
   }
 
@@ -35,9 +40,55 @@ class _MapScreenState extends ConsumerState<MapScreen> {
     _listener();
 
     return Scaffold(
-      body: mp.MapWidget(
-        onMapCreated: _onMapCreated,
-        styleUri: mp.MapboxStyles.DARK,
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          mp.MapWidget(
+            onMapCreated: _onMapCreated,
+            styleUri: mp.MapboxStyles.DARK,
+          ),
+          Positioned(
+            top: 50,
+            left: 16,
+            right: 16,
+            child: Container(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.of(context).size.height,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [BoxShadow(blurRadius: 10, color: Colors.black26)],
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _searchBar(searchController),
+
+                  if (suggestions.isNotEmpty)
+                    SingleChildScrollView(
+                      child: ListView.builder(
+                        // physics: ScrollPhysics(),
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemCount: suggestions.length,
+                        itemBuilder: (context, index) {
+                          final place = suggestions[index];
+                          return ListTile(
+                            dense: true,
+                            leading: Icon(Icons.location_on, size: 20),
+                            title: Text(place.name),
+                            subtitle: Text(place.fullAddress ?? ''),
+                            onTap: () {},
+                          );
+                        },
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -46,11 +97,11 @@ class _MapScreenState extends ConsumerState<MapScreen> {
     setState(() {
       mapboxMapController = controller;
     });
-    //logic for adding user position in the map
+
     mapboxMapController!.location.updateSettings(
       mp.LocationComponentSettings(enabled: true, pulsingEnabled: true),
     );
-    //login for adding custom annotation
+
     final pointAnnotationManner = await mapboxMapController?.annotations
         .createPointAnnotationManager();
     final Uint8List imageData = await _loadHqMarkerImage();
@@ -61,7 +112,6 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           geometry: mp.Point(coordinates: mp.Position(-122.0312186, 37.33233)),
         );
     pointAnnotationManner?.create(pointAnnotationOptions);
-    _onsearchRequest();
   }
 
   Future<void> _setupPositionTracking() async {
@@ -117,9 +167,9 @@ class _MapScreenState extends ConsumerState<MapScreen> {
     return bytData.buffer.asUint8List();
   }
 
-  void _onsearchRequest() async {
+  void _onsearchRequest(String q) async {
     final query = {
-      'query': "madugu",
+      'query': searchController.text.trim(),
       'country': "IN",
       'language': "en",
       'limit': 10,
@@ -127,13 +177,10 @@ class _MapScreenState extends ConsumerState<MapScreen> {
       'sessionToken': "djudhfedb",
     };
     ref.read(searchPlaceProvider.notifier).setQueryData(query);
-    final suggestion = await ref
-        .read(searchPlaceProvider.notifier)
-        .searchPlaces();
+    await ref.read(searchPlaceProvider.notifier).searchPlaces();
   }
 
   void _listener() {
-    // listen for error
     ref.listen(searchPlaceProvider.select((value) => value.error), (_, next) {
       if (next != null) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -145,14 +192,72 @@ class _MapScreenState extends ConsumerState<MapScreen> {
         );
       }
     });
-    // listen for success
+
     ref.listen(searchPlaceProvider.select((value) => value.suggestion), (
       _,
       next,
     ) {
       if (next != null) {
-        print(next.suggestions.map((e) => e.name));
+        suggestions.clear();
+        next.suggestions.map((e) {
+          suggestions.add(
+            Suggestion(
+              id: e.id,
+              name: e.name,
+              address: e.address,
+              fullAddress: e.fullAddress,
+              context: e.context,
+              distance: e.distance,
+            ),
+          );
+        }).toList();
+        setState(() {});
       }
     });
+  }
+
+  Widget _searchBar(TextEditingController serachController) {
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: TextField(
+        controller: serachController,
+        decoration: InputDecoration(
+          hintText: 'Search Places....',
+          prefixIcon: Icon(Icons.search),
+          suffixIcon: IconButton(
+            onPressed: () {
+              serachController.clear();
+              setState(() => suggestions.clear());
+            },
+            icon: Icon(Icons.clear),
+          ),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+          filled: true,
+          fillColor: Colors.white,
+        ),
+        onChanged: (query) => _onsearchRequest(query),
+      ),
+    );
+  }
+
+  Widget _buildSuggestionsList() {
+    return SizedBox(
+      height: 200,
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: suggestions.length,
+        itemBuilder: (context, index) {
+          final place = suggestions[index];
+          return ListTile(
+            leading: Icon(Icons.location_on),
+            title: Text(place.name),
+            subtitle: Text(place.fullAddress ?? ''),
+            onTap: () {
+              setState(() => suggestions.clear());
+            },
+          );
+        },
+      ),
+    );
   }
 }

@@ -24,7 +24,7 @@ abstract interface class PlaceSuggessionMaper {
 
   static PlaceContext _contextToDomain(Context dto) {
     return PlaceContext(
-      country: dto.country.name,
+      country: dto.country?.name,
       city: dto.place?.name,
       street: dto.street?.name,
     );

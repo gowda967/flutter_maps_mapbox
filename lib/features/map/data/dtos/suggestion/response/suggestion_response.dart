@@ -41,7 +41,7 @@ abstract class SuggestionDto with _$SuggestionDto {
 @freezed
 abstract class Context with _$Context {
   const factory Context({
-    @JsonKey(name: "country") required Country country,
+    @JsonKey(name: "country") required Country? country,
     @JsonKey(name: "postcode") Place? postcode,
     @JsonKey(name: "place") Place? place,
     @JsonKey(name: "street") Street? street,

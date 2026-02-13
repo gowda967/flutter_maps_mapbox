@@ -38,11 +38,7 @@ class MapRepository with DioExceptionMapper implements IMapRepository {
       throw left(mapDioExceptionToFailure(e, s));
     } catch (e, s) {
       throw left(
-        Failure(
-          message: e.toString(),
-          stackTrace: s,
-          exception: e as Exception,
-        ),
+        Failure(message: e.toString(), stackTrace: s, exception: Exception(e)),
       );
     }
   }

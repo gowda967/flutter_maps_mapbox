@@ -71,7 +71,9 @@ Map<String, dynamic> _$SuggestionDtoToJson(_SuggestionDto instance) =>
     };
 
 _Context _$ContextFromJson(Map<String, dynamic> json) => _Context(
-  country: Country.fromJson(json['country'] as Map<String, dynamic>),
+  country: json['country'] == null
+      ? null
+      : Country.fromJson(json['country'] as Map<String, dynamic>),
   postcode: json['postcode'] == null
       ? null
       : Place.fromJson(json['postcode'] as Map<String, dynamic>),
