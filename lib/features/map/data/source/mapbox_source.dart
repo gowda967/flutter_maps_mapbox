@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_map_mapbox/core/data/remote/network_service.dart';
+import 'package:flutter_map_mapbox/features/map/data/dtos/retrieve/retrieve_response.dart';
 import 'package:flutter_map_mapbox/features/map/data/dtos/suggestion/response/suggestion_response.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:retrofit/retrofit.dart';
@@ -24,8 +25,8 @@ abstract class MapboxSource {
     @Query('country') String? country,
   );
 
-  @GET('/search/searchbox/v1/retrieve/{id}')
-  Future<Object> retrievePlace(
+  @GET('/search/searchbox/v1/retrieve/{id}?')
+  Future<RetrieveResponseDto> retrievePlace(
     @Path('id') String id,
     @Query('session_token') String sessionToken,
   );

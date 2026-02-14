@@ -53,9 +53,9 @@ class MapRepository with DioExceptionMapper implements IMapRepository {
   ) async {
     try {
       final response = await _mapboxSource.retrievePlace(id, sessionToken);
-      final data = RetrieveResponse.fromJson(
-        jsonDecode(response.toString()),
-      ).features.map((e) => e.properties).toList();
+      final data = response.features
+          .map((e) => RetrieveResponseMapper.toProperties(e.properties))
+          .toList();
       return Right(data.first);
     } on DioException catch (e, s) {
       throw left(mapDioExceptionToFailure(e, s));

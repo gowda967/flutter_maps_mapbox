@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_map_mapbox/core/theme/app_pallete.dart';
 import 'package:flutter_map_mapbox/features/map/domain/entities/place_suggestion.dart';
 import 'package:flutter_map_mapbox/features/map/domain/entities/search_query.dart';
+import 'package:flutter_map_mapbox/features/map/presentation/provider/retrieve_place_provider.dart';
 import 'package:flutter_map_mapbox/features/map/presentation/provider/search_place_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart' as gl;
@@ -39,7 +40,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
   @override
   Widget build(BuildContext context) {
     _listener();
-
+    _listener2();
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -80,8 +81,16 @@ class _MapScreenState extends ConsumerState<MapScreen> {
                             leading: Icon(Icons.location_on, size: 20),
                             title: Text(place.name),
                             subtitle: Text(place.fullAddress ?? ''),
-                            onTap: () {
-                              print(place);
+                            onTap: () async {
+                              ref
+                                  .read(retrievePlaceProvider.notifier)
+                                  .setQueryData({
+                                    "id": place.id,
+                                    "session_token": "djudhfedb",
+                                  });
+                              await ref
+                                  .read(retrievePlaceProvider.notifier)
+                                  .retrievePlace();
                             },
                           );
                         },
@@ -184,6 +193,7 @@ class _MapScreenState extends ConsumerState<MapScreen> {
   }
 
   void _listener() {
+    print("111111");
     ref.listen(searchPlaceProvider.select((value) => value.error), (_, next) {
       if (next != null) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -215,6 +225,44 @@ class _MapScreenState extends ConsumerState<MapScreen> {
           );
         }).toList();
         setState(() {});
+      }
+    });
+  }
+
+  void _listener2() {
+    print("object");
+    ref.listen(retrievePlaceProvider.select((value) => value.error), (_, next) {
+      if (next != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            duration: const Duration(seconds: 5),
+            backgroundColor: Colors.red,
+            content: Text(next),
+          ),
+        );
+      }
+    });
+
+    ref.listen(retrievePlaceProvider.select((value) => value.placeProperties), (
+      _,
+      next,
+    ) async {
+      if (next != null) {
+        await mapboxMapController?.flyTo(
+          mp.CameraOptions(
+            center: mp.Point(
+              coordinates: mp.Position(
+                next.coordinates.longitude,
+                next.coordinates.latitude,
+              ),
+            ),
+            zoom: 16.0,
+          ),
+          mp.MapAnimationOptions(
+            duration: 2000, // 2 seconds
+            startDelay: 0,
+          ),
+        );
       }
     });
   }
